@@ -106,6 +106,7 @@
       <ConformanceMode>true</ConformanceMode>
       <AdditionalIncludeDirectories>F:\_STM32_PROJECTS\F746\LVGL_log_pass_LVGLv9.0.1\WindowsSimulator\Project1;F:\_STM32_PROJECTS\F746\LVGL_log_pass_LVGLv9.0.1\WindowsSimulator\Project1\LvglWindowsIconResource;F:\_STM32_PROJECTS\F746\LVGL_log_pass_LVGLv9.0.1\app\gui\lvgl\src;F:\_STM32_PROJECTS\F746\LVGL_log_pass_LVGLv9.0.1\app\gui\lvgl;F:\_STM32_PROJECTS\F746\LVGL_log_pass_LVGLv9.0.1\app\mvc;F:\_STM32_PROJECTS\F746\LVGL_log_pass_LVGLv9.0.1\app\tasks;F:\_STM32_PROJECTS\F746\LVGL_log_pass_LVGLv9.0.1\app\gui\lvgl\src\drivers\windows;F:\_STM32_PROJECTS\F746\LVGL_log_pass_LVGLv9.0.1\app;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <LanguageStandard>stdcpp17</LanguageStandard>
+      <LanguageStandard_C>stdc17</LanguageStandard_C>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
@@ -123,6 +124,7 @@
       <AdditionalIncludeDirectories>F:\_STM32_PROJECTS\F746\LVGL_log_pass_LVGLv9.0.1\WindowsSimulator\Project1;F:\_STM32_PROJECTS\F746\LVGL_log_pass_LVGLv9.0.1\WindowsSimulator\Project1\LvglWindowsIconResource;F:\_STM32_PROJECTS\F746\LVGL_log_pass_LVGLv9.0.1\app\gui\lvgl\src;F:\_STM32_PROJECTS\F746\LVGL_log_pass_LVGLv9.0.1\app\gui\lvgl;F:\_STM32_PROJECTS\F746\LVGL_log_pass_LVGLv9.0.1\app\mvc;F:\_STM32_PROJECTS\F746\LVGL_log_pass_LVGLv9.0.1\app\tasks;F:\_STM32_PROJECTS\F746\LVGL_log_pass_LVGLv9.0.1\app\gui\lvgl\src\drivers\windows;F:\_STM32_PROJECTS\F746\LVGL_log_pass_LVGLv9.0.1\app;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <LanguageStandard>stdcpp17</LanguageStandard>
       <Optimization>MaxSpeed</Optimization>
+      <LanguageStandard_C>stdc17</LanguageStandard_C>
     </ClCompile>
     <Link>
       <SubSystem>NotSet</SubSystem>
@@ -393,10 +395,13 @@
     <ClInclude Include="..\..\app\gui\lvgl\src\widgets\textarea\lv_textarea.h" />
     <ClInclude Include="..\..\app\gui\lvgl\src\widgets\tileview\lv_tileview.h" />
     <ClInclude Include="..\..\app\gui\lvgl\src\widgets\win\lv_win.h" />
+    <ClInclude Include="..\..\app\memory.h" />
     <ClInclude Include="..\..\app\mvc\auth_controller.h" />
     <ClInclude Include="..\..\app\mvc\auth_model.h" />
     <ClInclude Include="..\..\app\mvc\auth_view.h" />
-    <ClInclude Include="..\..\app\mvc\mvc.h" />
+    <ClInclude Include="..\..\app\mvc\observable.h" />
+    <ClInclude Include="..\..\app\mvc\observer.h" />
+    <ClInclude Include="..\..\app\static_string.h" />
     <ClInclude Include="..\..\app\tasks\app_tasks.h" />
     <ClInclude Include="lv_conf.h" />
   </ItemGroup>
@@ -721,7 +726,11 @@
     <ClCompile Include="..\..\app\gui\lvgl\src\widgets\textarea\lv_textarea.c" />
     <ClCompile Include="..\..\app\gui\lvgl\src\widgets\tileview\lv_tileview.c" />
     <ClCompile Include="..\..\app\gui\lvgl\src\widgets\win\lv_win.c" />
-    <ClCompile Include="..\..\app\mvc\mvc.cpp" />
+    <ClCompile Include="..\..\app\memory.cpp" />
+    <ClCompile Include="..\..\app\mvc\auth_controller.cpp" />
+    <ClCompile Include="..\..\app\mvc\auth_model.cpp" />
+    <ClCompile Include="..\..\app\mvc\auth_view.cpp" />
+    <ClCompile Include="..\..\app\mvc\observable.cpp" />
     <ClCompile Include="..\..\app\tasks\app_tasks.cpp" />
     <ClCompile Include="WindowsSimulator.cpp" />
   </ItemGroup>

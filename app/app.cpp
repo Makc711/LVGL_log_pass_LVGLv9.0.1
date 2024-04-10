@@ -9,7 +9,7 @@
 #include "app.h"
 #include "app_tasks.h"
 #include "lvgl.h"
-#include "mvc.h"
+#include "memory.h"
 #include "gui/gui_app.h"
 #ifdef EMBEDDED
 #include "hardware.h"
@@ -56,9 +56,8 @@ error_code_t app_main(void)
 
   app_create_tasks();
   gui_create();
-  mvc_init();
 
-  return ok;
+  return OK;
 }
 
 /**********************
@@ -73,7 +72,7 @@ static error_code_t display_init(void)
   if (res) { return res; }
 #endif
 
-  return ok;
+  return OK;
 }
 
 static error_code_t input_device_init(void)
@@ -85,7 +84,7 @@ static error_code_t input_device_init(void)
   if (res) { return res; }
 #endif
 
-  return ok;
+  return OK;
 }
 
 #ifndef EMBEDDED
@@ -105,13 +104,13 @@ static error_code_t windows_display_init(void)
       true);
   if (!g_display)
   {
-    return error_create_display;
+    return ERROR_CREATE_DISPLAY;
   }
 
   HWND window_handle = lv_windows_get_display_window_handle(g_display);
   if (!window_handle)
   {
-    return error_get_display_handle;
+    return ERROR_GET_DISPLAY_HANDLE;
   }
 
   HICON icon_handle = LoadIconW(
@@ -131,7 +130,7 @@ static error_code_t windows_display_init(void)
         (LPARAM)icon_handle);
   }
 
-  return ok;
+  return OK;
 }
 
 static error_code_t windows_input_device_init(void)
@@ -139,15 +138,15 @@ static error_code_t windows_input_device_init(void)
   lv_indev_t* pointer_indev = lv_windows_acquire_pointer_indev(g_display);
   if (!pointer_indev)
   {
-    return error_pointer_indev;
+    return ERROR_POINTER_INDEV;
   }
 
   lv_indev_t* keypad_indev = lv_windows_acquire_keypad_indev(g_display);
   if (!keypad_indev)
   {
-    return error_keypad_indev;
+    return ERROR_KEYPAD_INDEV;
   }
 
-  return ok;
+  return OK;
 }
 #endif

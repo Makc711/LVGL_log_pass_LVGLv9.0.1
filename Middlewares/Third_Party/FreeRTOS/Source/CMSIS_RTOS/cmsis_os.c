@@ -100,7 +100,7 @@
 extern void xPortSysTickHandler(void);
 
 /* Convert from CMSIS type osPriority to FreeRTOS priority number */
-static unsigned portBASE_TYPE makeFreeRtosPriority (osPriority priority)
+unsigned portBASE_TYPE makeFreeRtosPriority (osPriority priority)
 {
   unsigned portBASE_TYPE fpriority = tskIDLE_PRIORITY;
   

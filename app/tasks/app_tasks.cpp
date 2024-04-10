@@ -8,18 +8,29 @@
  *********************/
 #include "app_tasks.h"
 #include "gui/lvgl/lvgl.h"
-#include "mvc.h"
+#include "memory.h"
+#include "auth_model.h"
+#include "auth_view.h"
+#include "auth_controller.h"
 #ifdef EMBEDDED
 #include "cmsis_os.h"
 #else
+#include <iostream>
 #include <thread>
 #include <chrono>
 #include <mutex>
+#include "processthreadsapi.h"
+#include "WinBase.h"
 #endif
 
 /**********************
 *      TYPEDEFS
 **********************/
+struct log_pass_t {
+  const char* username;
+  const char* password;
+};
+
 #ifdef EMBEDDED
 using mutex_t = osMutexId;
 #else
@@ -29,59 +40,63 @@ using mutex_t = std::mutex;
 /**********************
 *   STATIC VARIABLES
 **********************/
+static log_pass_t g_log_pass;
 static mutex_t g_mutex_semaphore;
-static char* g_entered_username = new char[1]();
-static char* g_entered_password = new char[1]();
-static bool g_is_log_pass_not_checked = false;
+#ifdef EMBEDDED
+static TaskHandle_t g_task_mvc_handle;
+#else
+static std::condition_variable g_cv;
+#endif
 
 /**********************
 *  STATIC PROTOTYPES
 **********************/
-static void lvgl_handler(void* pv_parameters);
+static void task_lvgl(void* pv_parameters);
 static void task_mvc(void* pv_parameters);
 static void sleep_os(uint32_t time_ms);
 
 /**********************
  *   GLOBAL FUNCTIONS
  **********************/
-void app_create_tasks(void)
+void app_create_tasks()
 {
 #ifdef EMBEDDED
   g_mutex_semaphore = xSemaphoreCreateMutex();
-  xTaskCreate(lvgl_handler, "lvgl_handler", 1000, NULL, osPriorityHigh, NULL);
-  xTaskCreate(task_mvc, "task_mvc", 1000, NULL, osPriorityIdle, NULL);
+  TaskHandle_t g_task_lvgl_handle;
+  xTaskCreate(task_lvgl, "task_lvgl", 1000, nullptr, makeFreeRtosPriority(osPriorityNormal), &g_task_lvgl_handle);
+  xTaskCreate(task_mvc, "task_mvc", 1000, nullptr, uxTaskPriorityGet(g_task_lvgl_handle) + 1, &g_task_mvc_handle);
 #else
-  std::thread th1(lvgl_handler, nullptr);
-  th1.detach();
-  std::thread th2(task_mvc, nullptr);
-  th2.detach();
+  std::thread lvgl_thread(task_lvgl, nullptr);
+  std::thread mvc_thread(task_mvc, nullptr);
+
+  if (!SetThreadPriority(lvgl_thread.native_handle(), THREAD_PRIORITY_NORMAL)) 
+  {
+    std::cerr << "Failed to set priority for LVGL thread\n";
+  }
+
+  if (!SetThreadPriority(mvc_thread.native_handle(), THREAD_PRIORITY_ABOVE_NORMAL)) 
+  {
+    std::cerr << "Failed to set priority for MVC thread\n";
+  }
+
+  lvgl_thread.detach();
+  mvc_thread.detach();
 #endif
 }
 
 void update_log_pass(const char* username, const char* password)
 {
-  if ((strcmp(g_entered_username, username) != 0) || (strcmp(g_entered_password, password) != 0))
-  {
-    delete[] g_entered_username;
-    delete[] g_entered_password;
+  g_log_pass.username = username;
+  g_log_pass.password = password;
 
-    g_entered_username = new char[strlen(username) + 1];
-    g_entered_password = new char[strlen(password) + 1];
-
-    if (g_entered_username && g_entered_password)
-    {
-      strcpy(g_entered_username, username);
-      strcpy(g_entered_password, password);
-      g_is_log_pass_not_checked = true;
-    }
-    else
-    {
-      while (true) {} // TODO: Memory allocation error handling
-    }
-  }
+#ifdef EMBEDDED
+  xTaskNotifyGive(g_task_mvc_handle);
+#else
+  g_cv.notify_one();
+#endif
 }
 
-void app_mutex_lock(void)
+void app_mutex_lock()
 {
 #ifdef EMBEDDED
   xSemaphoreTake(g_mutex_semaphore, portMAX_DELAY);
@@ -90,19 +105,22 @@ void app_mutex_lock(void)
 #endif
 }
 
-void app_mutex_unlock(void)
+void app_mutex_unlock()
 {
 #ifdef EMBEDDED
   xSemaphoreGive(g_mutex_semaphore);
 #else
-  g_mutex_semaphore.unlock();
+  if (g_mutex_semaphore.try_lock())
+  {
+    g_mutex_semaphore.unlock();
+  }
 #endif
 }
 
 /**********************
  *   STATIC FUNCTIONS
  **********************/
-static void lvgl_handler(void* pv_parameters)
+static void task_lvgl(void* pv_parameters)
 {
   for (;;)
   {
@@ -115,22 +133,50 @@ static void lvgl_handler(void* pv_parameters)
 
 void task_mvc(void* pv_parameters)
 {
+  char saved_username[k_username_max_length];
+  char saved_password[k_password_max_length];
+  memory_read_log_pass(saved_username, saved_password);
+
+  auth_model model(saved_username, saved_password);
+  const auth_view view(model);
+  const auth_controller controller(model);
+
   for (;;)
   {
-    if (g_is_log_pass_not_checked)
+#ifdef EMBEDDED
+    if (ulTaskNotifyTake(pdFALSE, portMAX_DELAY) == 1)
     {
-      mvc(g_entered_username, g_entered_password);
-      g_is_log_pass_not_checked = false;
+      if (model.is_auth_succeed())
+      {
+        controller.set_default_state();
+      }
+      else
+      {
+        controller.authenticate_user(g_log_pass.username, g_log_pass.password);
+      }
     }
-    sleep_os(30);
+#else
+    std::mutex m;
+    std::unique_lock lock(m);
+    g_cv.wait(lock);
+    if (model.is_auth_succeed())
+    {
+      controller.set_default_state();
+    }
+    else
+    {
+      controller.authenticate_user(g_log_pass.username, g_log_pass.password);
+    }
+    lock.unlock();
+#endif
   }
 }
 
 static void sleep_os(uint32_t time_ms)
 {
 #ifdef EMBEDDED
-osDelay(time_ms);
+  osDelay(time_ms);
 #else
-std::this_thread::sleep_for(std::chrono::milliseconds(time_ms));
+  std::this_thread::sleep_for(std::chrono::milliseconds(time_ms));
 #endif
 }

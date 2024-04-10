@@ -3990,14 +3990,23 @@
     <ClInclude Include="..\app\mvc\auth_view.h">
       <Filter>Source files\app\mvc</Filter>
     </ClInclude>
-    <ClCompile Include="..\app\mvc\mvc.cpp">
-      <Filter>Source files\app\mvc</Filter>
-    </ClCompile>
-    <ClInclude Include="..\app\mvc\mvc.h">
-      <Filter>Source files\app\mvc</Filter>
-    </ClInclude>
     <ClCompile Include="..\app\drivers\flash\flash_rw.c">
       <Filter>Source files\app\drivers\flash</Filter>
+    </ClCompile>
+    <ClCompile Include="..\app\mvc\auth_controller.cpp">
+      <Filter>Source files\app\mvc</Filter>
+    </ClCompile>
+    <ClCompile Include="..\app\mvc\auth_model.cpp">
+      <Filter>Source files\app\mvc</Filter>
+    </ClCompile>
+    <ClCompile Include="..\app\mvc\auth_view.cpp">
+      <Filter>Source files\app\mvc</Filter>
+    </ClCompile>
+    <ClCompile Include="..\app\memory.cpp">
+      <Filter>Source files\app</Filter>
+    </ClCompile>
+    <ClCompile Include="..\app\mvc\observable.cpp">
+      <Filter>Source files\app\mvc</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -4009,6 +4018,18 @@
     </ClInclude>
     <ClInclude Include="..\app\drivers\flash\flash_rw.h">
       <Filter>Source files\app\drivers\flash</Filter>
+    </ClInclude>
+    <ClInclude Include="..\app\memory.h">
+      <Filter>Source files\app</Filter>
+    </ClInclude>
+    <ClInclude Include="..\app\static_string.h">
+      <Filter>Source files\app</Filter>
+    </ClInclude>
+    <ClInclude Include="..\app\mvc\observable.h">
+      <Filter>Source files\app\mvc</Filter>
+    </ClInclude>
+    <ClInclude Include="..\app\mvc\observer.h">
+      <Filter>Source files\app\mvc</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

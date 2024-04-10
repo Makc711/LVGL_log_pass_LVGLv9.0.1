@@ -32,6 +32,9 @@ extern "C"
  * GLOBAL PROTOTYPES
  **********************/
 uint32_t erase_sector(const uint32_t address_start, const uint32_t address_end); // Use before write!
+void write_byte(const uint32_t address, const uint8_t byte);
+uint8_t read_byte(const uint32_t address);
+void check_byte(const uint32_t address, const uint8_t byte);
 void write_str_to_flash(const char* str, const uint32_t address);
 size_t read_str_from_flash(const uint32_t address, char* str, const size_t max_length);
 

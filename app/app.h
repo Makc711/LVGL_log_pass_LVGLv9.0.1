@@ -4,16 +4,16 @@
 extern "C" {
 #endif
 
-/*********************
- *      DEFINES
- *********************/
+/**********************
+ *      TYPEDEFS
+ **********************/
 typedef enum
 {
-  ok                       = 0,
-  error_create_display     = -1,
-  error_get_display_handle = -2,
-  error_pointer_indev      = -3,
-  error_keypad_indev       = -4
+  OK                       = 0,
+  ERROR_CREATE_DISPLAY     = -1,
+  ERROR_GET_DISPLAY_HANDLE = -2,
+  ERROR_POINTER_INDEV      = -3,
+  ERROR_KEYPAD_INDEV       = -4
 } error_code_t;
 
 /**********************

@@ -51,9 +51,6 @@
     <ClInclude Include="..\..\app\mvc\auth_view.h">
       <Filter>Исходные файлы\app\mvc</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\app\mvc\mvc.h">
-      <Filter>Исходные файлы\app\mvc</Filter>
-    </ClInclude>
     <ClInclude Include="..\..\app\gui\gui_app.h">
       <Filter>Исходные файлы\app\gui</Filter>
     </ClInclude>
@@ -834,6 +831,18 @@
     <ClInclude Include="..\..\app\gui\lvgl\src\lvgl_private.h">
       <Filter>Исходные файлы\app\gui\lvgl\src</Filter>
     </ClInclude>
+    <ClInclude Include="..\..\app\mvc\observer.h">
+      <Filter>Исходные файлы\app\mvc</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\app\mvc\observable.h">
+      <Filter>Исходные файлы\app\mvc</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\app\static_string.h">
+      <Filter>Исходные файлы\app</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\app\memory.h">
+      <Filter>Исходные файлы\app</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="WindowsSimulator.cpp">
@@ -844,9 +853,6 @@
     </ClCompile>
     <ClCompile Include="..\..\app\tasks\app_tasks.cpp">
       <Filter>Исходные файлы\app\tasks</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\app\mvc\mvc.cpp">
-      <Filter>Исходные файлы\app\mvc</Filter>
     </ClCompile>
     <ClCompile Include="..\..\app\gui\gui_app.cpp">
       <Filter>Исходные файлы\app\gui</Filter>
@@ -1804,6 +1810,21 @@
     </ClCompile>
     <ClCompile Include="..\..\app\gui\lvgl\src\lv_init.c">
       <Filter>Исходные файлы\app\gui\lvgl\src</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\app\mvc\auth_controller.cpp">
+      <Filter>Исходные файлы\app\mvc</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\app\mvc\auth_model.cpp">
+      <Filter>Исходные файлы\app\mvc</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\app\mvc\auth_view.cpp">
+      <Filter>Исходные файлы\app\mvc</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\app\mvc\observable.cpp">
+      <Filter>Исходные файлы\app\mvc</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\app\memory.cpp">
+      <Filter>Исходные файлы\app</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>

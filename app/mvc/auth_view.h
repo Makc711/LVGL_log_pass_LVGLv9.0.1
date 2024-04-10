@@ -1,29 +1,28 @@
 ﻿#pragma once
 
 // Include
-#include <string>
-#include "gui/gui_app.h"
+#include "observer.h"
+#include "auth_model.h"
 
-// Class AuthView
-class auth_view
+// Class auth_view
+class auth_view final : public observer
 {
 public:
-  void show_success_message() const
-  {
-    print_text_message("Authentication is correct");
-  }
+  explicit auth_view(auth_model& model);
 
-  void show_failure_message(const int attempts) const
+private:
+  enum class panel_mode_t
   {
-    if (attempts)
-    {
-      const std::string message = "Authentication is incorrect! Attempts left: " + std::to_string(attempts);
-      print_text_message(message.c_str());
-    }
-    else
-    {
-      print_text_message("Entry blocked!");
-      set_log_in_btn_inactive();
-    }
-  }
+    DEFAULT,
+    SUCCESS,
+    FAILURE
+  };
+
+  void update() override;
+  static void show_success_message();
+  static void show_failure_message(const int attempts);
+  static void set_profile_panel_mode(const panel_mode_t mode);
+
+private:
+  auth_model& f_model;
 };

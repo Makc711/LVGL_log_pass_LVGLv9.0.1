@@ -47,7 +47,7 @@
       <AdditionalIncludeDirectories>..\Inc;..\Drivers\STM32F7xx_HAL_Driver\Inc;..\Drivers\STM32F7xx_HAL_Driver\Inc\Legacy;..\Middlewares\Third_Party\FreeRTOS\Source\include;..\Middlewares\Third_Party\FreeRTOS\Source\CMSIS_RTOS;..\Middlewares\Third_Party\FreeRTOS\Source\portable\GCC\ARM_CM7\r0p1;..\Drivers\CMSIS\Device\ST\STM32F7xx\Include;..\Drivers\CMSIS\Include;..\app;..\app\gui;..\app\gui\lvgl;..\app\gui\lvgl\src;..\app\hardware;..\app\tasks;..\app\drivers\tft;..\app\drivers\touchpad;..\app\Utilities\STM32746G-Discovery;.;..\app\mvc;../app/drivers/flash;%(ClCompile.AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <PreprocessorDefinitions>DEBUG=1;USE_HAL_DRIVER;STM32F746xx;EMBEDDED;%(ClCompile.PreprocessorDefinitions)</PreprocessorDefinitions>
       <AdditionalOptions />
-      <CPPLanguageStandard />
+      <CPPLanguageStandard>CPP1Z</CPPLanguageStandard>
       <Optimization>O0</Optimization>
     </ClCompile>
     <Link>
@@ -65,7 +65,7 @@
       <AdditionalIncludeDirectories>..\Inc;..\Drivers\STM32F7xx_HAL_Driver\Inc;..\Drivers\STM32F7xx_HAL_Driver\Inc\Legacy;..\Middlewares\Third_Party\FreeRTOS\Source\include;..\Middlewares\Third_Party\FreeRTOS\Source\CMSIS_RTOS;..\Middlewares\Third_Party\FreeRTOS\Source\portable\GCC\ARM_CM7\r0p1;..\Drivers\CMSIS\Device\ST\STM32F7xx\Include;..\Drivers\CMSIS\Include;..\app;..\app\gui;..\app\gui\lvgl;..\app\gui\lvgl\src;..\app\hardware;..\app\tasks;..\app\drivers\tft;..\app\drivers\touchpad;..\app\Utilities\STM32746G-Discovery;.;..\app\mvc;../app/drivers/flash;%(ClCompile.AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <PreprocessorDefinitions>NDEBUG=1;RELEASE=1;USE_HAL_DRIVER;STM32F746xx;EMBEDDED;%(ClCompile.PreprocessorDefinitions)</PreprocessorDefinitions>
       <AdditionalOptions />
-      <CPPLanguageStandard />
+      <CPPLanguageStandard>CPP1Z</CPPLanguageStandard>
       <Optimization>O3</Optimization>
     </ClCompile>
     <Link>
@@ -84,6 +84,11 @@
   </ImportGroup>
   <ItemGroup>
     <ClCompile Include="..\app\drivers\flash\flash_rw.c" />
+    <ClCompile Include="..\app\memory.cpp" />
+    <ClCompile Include="..\app\mvc\auth_controller.cpp" />
+    <ClCompile Include="..\app\mvc\auth_model.cpp" />
+    <ClCompile Include="..\app\mvc\auth_view.cpp" />
+    <ClCompile Include="..\app\mvc\observable.cpp" />
     <ClCompile Include="..\Startup\startup_stm32f746nghx.S" />
     <ClCompile Include="..\app\app.cpp" />
     <ClCompile Include="ExtraMemories.c" />
@@ -673,6 +678,10 @@
     <ClCompile Include="..\app\hardware\hardware.c" />
     <ClInclude Include="..\app\hardware\hardware.h" />
     <ClCompile Include="..\app\tasks\app_tasks.cpp" />
+    <ClInclude Include="..\app\memory.h" />
+    <ClInclude Include="..\app\mvc\observable.h" />
+    <ClInclude Include="..\app\mvc\observer.h" />
+    <ClInclude Include="..\app\static_string.h" />
     <ClInclude Include="..\app\tasks\app_tasks.h" />
     <ClCompile Include="..\app\Utilities\Components\adv7533\adv7533.c" />
     <ClInclude Include="..\app\Utilities\Components\adv7533\adv7533.h" />
@@ -1027,7 +1036,5 @@
     <ClInclude Include="..\app\mvc\auth_controller.h" />
     <ClInclude Include="..\app\mvc\auth_model.h" />
     <ClInclude Include="..\app\mvc\auth_view.h" />
-    <ClCompile Include="..\app\mvc\mvc.cpp" />
-    <ClInclude Include="..\app\mvc\mvc.h" />
   </ItemGroup>
 </Project>

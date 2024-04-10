@@ -33,8 +33,8 @@ uint32_t erase_sector(const uint32_t address_start, const uint32_t address_end)
      you have to make sure that these data are rewritten before they are accessed during code
      execution. If this cannot be done safely, it is recommended to flush the caches by setting the
      DCRST and ICRST bits in the FLASH_CR register. */
-  uint32_t sector_error = 0;
-  if (HAL_FLASHEx_Erase(&erase_init_struct, &sector_error) != HAL_OK)
+  uint32_t index_of_sector_error = 0;
+  if (HAL_FLASHEx_Erase(&erase_init_struct, &index_of_sector_error) != HAL_OK)
   {
     /*
       Error occurred while sector erase.
@@ -48,38 +48,43 @@ uint32_t erase_sector(const uint32_t address_start, const uint32_t address_end)
 
   HAL_FLASH_Lock();
 
-  return sector_error;
+  return index_of_sector_error;
+}
+
+void write_byte(const uint32_t address, const uint8_t byte)
+{
+  const HAL_StatusTypeDef status = HAL_FLASH_Program(FLASH_TYPEPROGRAM_BYTE, address, byte);
+  if (status != HAL_OK) 
+  {
+    /* Error occurred while writing data in Flash memory.
+       User can add here some code to deal with this error */
+    while (1) {}
+  }
+}
+
+uint8_t read_byte(const uint32_t address)
+{
+  return *(__IO uint8_t*)(address);
+}
+
+void check_byte(const uint32_t address, const uint8_t byte)
+{
+  if (read_byte(address) != byte)
+  {
+    while (1) {}
+  }
 }
 
 void write_str_to_flash(const char* str, const uint32_t address)
 {
-  HAL_StatusTypeDef status = HAL_OK;
   HAL_FLASH_Unlock();
 
   size_t i = 0;
-  for (; str[i] != '\0'; ++i) 
+  do
   {
-    status = HAL_FLASH_Program(FLASH_TYPEPROGRAM_BYTE, address + i, (uint8_t)str[i]);
-    if (status != HAL_OK) 
-    {
-      /* Error occurred while writing data in Flash memory.
-         User can add here some code to deal with this error */
-      while (1) {}
-    }
-
-    const uint8_t read_byte = *(__IO uint8_t*)(address + i);
-    if (read_byte != (uint8_t)str[i])
-    {
-      while (1) {}
-    }
-  }
-
-  HAL_FLASH_Program(FLASH_TYPEPROGRAM_BYTE, address + i, '\0');
-  const uint8_t read_byte = *(__IO uint8_t*)(address + i);
-  if (read_byte != (uint8_t)str[i])
-  {
-    while (1) {}
-  }
+    write_byte(address + i, str[i]);
+    check_byte(address + i, str[i]);
+  } while (str[i++] != '\0');
 
   HAL_FLASH_Lock();
 }
@@ -87,15 +92,10 @@ void write_str_to_flash(const char* str, const uint32_t address)
 size_t read_str_from_flash(const uint32_t address, char* str, const size_t max_length)
 {
   size_t length = 0;
-  for (; length < max_length; ++length)
+  do
   {
-    const uint8_t read_byte = *(__IO uint8_t*)(address + length);
-    str[length] = (char)read_byte;
-    if (str[length] == '\0') 
-    {
-      break;
-    }
-  }
+    str[length] = (char)read_byte(address + length);
+  } while ((str[length] != '\0') && (length++ < max_length));
   return length;
 }
 
@@ -109,7 +109,7 @@ size_t read_str_from_flash(const uint32_t address, char* str, const size_t max_l
   */
 static uint32_t get_sector(const uint32_t address)
 {
-  uint32_t sector = 0;
+  uint32_t sector = FLASH_SECTOR_0;
 
   if ((address < ADDR_FLASH_SECTOR_1) && (address >= ADDR_FLASH_SECTOR_0))
   {
