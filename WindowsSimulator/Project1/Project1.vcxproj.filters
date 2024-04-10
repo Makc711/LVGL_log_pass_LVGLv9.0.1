@@ -839,25 +839,16 @@
     <ClCompile Include="WindowsSimulator.cpp">
       <Filter>Исходные файлы</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\app\app.c">
+    <ClCompile Include="..\..\app\app.cpp">
       <Filter>Исходные файлы\app</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\app\tasks\app_tasks.c">
+    <ClCompile Include="..\..\app\tasks\app_tasks.cpp">
       <Filter>Исходные файлы\app\tasks</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\app\mvc\auth_controller.cpp">
-      <Filter>Исходные файлы\app\mvc</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\app\mvc\auth_model.cpp">
-      <Filter>Исходные файлы\app\mvc</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\app\mvc\auth_view.cpp">
-      <Filter>Исходные файлы\app\mvc</Filter>
     </ClCompile>
     <ClCompile Include="..\..\app\mvc\mvc.cpp">
       <Filter>Исходные файлы\app\mvc</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\app\gui\gui_app.c">
+    <ClCompile Include="..\..\app\gui\gui_app.cpp">
       <Filter>Исходные файлы\app\gui</Filter>
     </ClCompile>
     <ClCompile Include="..\..\app\gui\lvgl\src\core\lv_group.c">

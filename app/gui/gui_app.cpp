@@ -1,5 +1,5 @@
 ﻿/**
- * @file gui_app.c
+ * @file gui_app.cpp
  *
  */
 
@@ -7,6 +7,7 @@
 *      INCLUDES
 *********************/
 #include "gui_app.h"
+#include <cstring>
 #include "app_tasks.h"
 #include "lvgl.h"
 
@@ -36,17 +37,24 @@ static void log_in_btn_event_cb(lv_event_t* e);
 /**********************
  *   GLOBAL FUNCTIONS
  **********************/
-void gui_app(void)
+void gui_create(void)
 {
   gui_init_style();
   gui_create_profile_panel(lv_screen_active());
 }
 
-lv_obj_t* get_text_message_label(void) { return g_text_message_label; }
+void print_text_message(const char* str)
+{
+  app_mutex_lock();
+  lv_label_set_text(g_text_message_label, str);
+  app_mutex_unlock();
+}
 
 void set_log_in_btn_inactive(void)
 {
-    lv_obj_add_state(g_log_in_btn, LV_STATE_DISABLED);
+  app_mutex_lock();
+  lv_obj_add_state(g_log_in_btn, LV_STATE_DISABLED);
+  app_mutex_unlock();
 }
 
 /**********************
@@ -70,10 +78,10 @@ void gui_init_style(void)
 
 #if LV_USE_THEME_DEFAULT
   lv_theme_default_init(NULL,
-      lv_palette_main(LV_PALETTE_BLUE),
-      lv_palette_main(LV_PALETTE_RED),
-      LV_THEME_DEFAULT_DARK,
-      g_font_normal);
+    lv_palette_main(LV_PALETTE_BLUE),
+    lv_palette_main(LV_PALETTE_RED),
+    LV_THEME_DEFAULT_DARK,
+    g_font_normal);
 #endif
 
   lv_style_init(&g_style_title);
@@ -164,8 +172,8 @@ static void ta_event_cb(lv_event_t* e)
 {
   lv_obj_t* parent = lv_screen_active();
   const lv_event_code_t code = lv_event_get_code(e);
-  lv_obj_t* ta = lv_event_get_target(e);
-  lv_obj_t* kb = lv_event_get_user_data(e);
+  const auto ta = static_cast<lv_obj_t*>(lv_event_get_target(e));
+  const auto kb = static_cast<lv_obj_t*>(lv_event_get_user_data(e));
 
   if (code == LV_EVENT_FOCUSED)
   {
@@ -177,7 +185,7 @@ static void ta_event_cb(lv_event_t* e)
       lv_obj_set_height(parent, LV_VER_RES - lv_obj_get_height(kb));
       lv_obj_remove_flag(kb, LV_OBJ_FLAG_HIDDEN);
       lv_obj_scroll_to_view_recursive(ta, LV_ANIM_ON);
-      lv_indev_wait_release(lv_event_get_param(e));
+      lv_indev_wait_release(static_cast<lv_indev_t*>(lv_event_get_param(e)));
     }
   }
   else if (code == LV_EVENT_DEFOCUSED)
@@ -207,11 +215,11 @@ static void log_in_btn_event_cb(lv_event_t* e)
   {
     if (strlen(password) < 6)
     {
-        lv_label_set_text(g_text_message_label, "Password must be greater than 6 chars");
+      lv_label_set_text(g_text_message_label, "Password must be greater than 6 chars");
     }
     else
     {
-        set_log_pass(username, password);
+      update_log_pass(username, password);
     }
   }
 }

@@ -1,7 +1,4 @@
-﻿#include <cstdint>
-#include "../../app/app.h"
-#include "../../app/gui/lvgl/lvgl.h"
-#include "../../app/tasks/app_tasks.h"
+﻿#include "../../app/app.h"
 
 int main()
 {
@@ -10,12 +7,7 @@ int main()
     return res;
   }
 
-  while (true)
-  {
-    const uint32_t time_till_next = lv_task_handler();
-    Sleep(time_till_next);
-    run_mvc();
-  }
+  while (true) {}
 
   return 0;
 }

@@ -66,6 +66,7 @@
       <PreprocessorDefinitions>NDEBUG=1;RELEASE=1;USE_HAL_DRIVER;STM32F746xx;EMBEDDED;%(ClCompile.PreprocessorDefinitions)</PreprocessorDefinitions>
       <AdditionalOptions />
       <CPPLanguageStandard />
+      <Optimization>O3</Optimization>
     </ClCompile>
     <Link>
       <LibrarySearchDirectories>;%(Link.LibrarySearchDirectories)</LibrarySearchDirectories>
@@ -84,7 +85,7 @@
   <ItemGroup>
     <ClCompile Include="..\app\drivers\flash\flash_rw.c" />
     <ClCompile Include="..\Startup\startup_stm32f746nghx.S" />
-    <ClCompile Include="..\app\app.c" />
+    <ClCompile Include="..\app\app.cpp" />
     <ClCompile Include="ExtraMemories.c" />
     <ClInclude Include="..\app\app.h" />
     <ClCompile Include="..\app\drivers\tft\tft.c" />
@@ -92,7 +93,7 @@
     <ClInclude Include="..\app\drivers\tft\tft.h" />
     <ClCompile Include="..\app\drivers\touchpad\touchpad.c" />
     <ClInclude Include="..\app\drivers\touchpad\touchpad.h" />
-    <ClCompile Include="..\app\gui\gui_app.c" />
+    <ClCompile Include="..\app\gui\gui_app.cpp" />
     <ClInclude Include="..\app\gui\gui_app.h" />
     <ClInclude Include="..\app\gui\lv_conf.h" />
     <ClInclude Include="..\app\gui\lvgl\lvgl.h" />
@@ -671,7 +672,7 @@
     <ClInclude Include="..\app\gui\lvgl\src\widgets\win\lv_win.h" />
     <ClCompile Include="..\app\hardware\hardware.c" />
     <ClInclude Include="..\app\hardware\hardware.h" />
-    <ClCompile Include="..\app\tasks\app_tasks.c" />
+    <ClCompile Include="..\app\tasks\app_tasks.cpp" />
     <ClInclude Include="..\app\tasks\app_tasks.h" />
     <ClCompile Include="..\app\Utilities\Components\adv7533\adv7533.c" />
     <ClInclude Include="..\app\Utilities\Components\adv7533\adv7533.h" />
@@ -1023,11 +1024,8 @@
     <ClCompile Include="..\app\gui\lvgl\src\draw\lv_image_buf.c" />
     <ClInclude Include="..\app\gui\lvgl\src\draw\lv_image_buf.h" />
     <ClInclude Include="..\app\gui\lvgl\src\draw\sw\blend\arm2d\lv_blend_helium.h" />
-    <ClCompile Include="..\app\mvc\auth_controller.cpp" />
     <ClInclude Include="..\app\mvc\auth_controller.h" />
-    <ClCompile Include="..\app\mvc\auth_model.cpp" />
     <ClInclude Include="..\app\mvc\auth_model.h" />
-    <ClCompile Include="..\app\mvc\auth_view.cpp" />
     <ClInclude Include="..\app\mvc\auth_view.h" />
     <ClCompile Include="..\app\mvc\mvc.cpp" />
     <ClInclude Include="..\app\mvc\mvc.h" />

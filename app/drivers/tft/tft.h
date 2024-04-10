@@ -6,6 +6,10 @@
 #ifndef DISP_H
 #define DISP_H
 
+#ifdef __cplusplus
+extern "C" {
+#endif
+
 /*********************
  *      DEFINES
  *********************/
@@ -16,5 +20,9 @@
  * GLOBAL PROTOTYPES
  **********************/
 void tft_init(void);
+
+#ifdef __cplusplus
+}
+#endif
 
 #endif

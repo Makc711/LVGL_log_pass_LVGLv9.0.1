@@ -1162,12 +1162,15 @@
     <Filter Include="Header files\app\mvc">
       <UniqueIdentifier>{2d0ccc67-202f-49b1-85ee-087cc086b838}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Source files\app\drivers\flash">
+      <UniqueIdentifier>{0da860a0-6a0a-496a-a3e7-04cdac0d8a55}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="..\Startup\startup_stm32f746nghx.S">
       <Filter>Source files\Startup</Filter>
     </ClCompile>
-    <ClCompile Include="..\app\app.c">
+    <ClCompile Include="..\app\app.cpp">
       <Filter>Source files\app</Filter>
     </ClCompile>
     <ClInclude Include="..\app\app.h">
@@ -1185,7 +1188,7 @@
     <ClInclude Include="..\app\drivers\touchpad\touchpad.h">
       <Filter>Source files\app\drivers\touchpad</Filter>
     </ClInclude>
-    <ClCompile Include="..\app\gui\gui_app.c">
+    <ClCompile Include="..\app\gui\gui_app.cpp">
       <Filter>Source files\app\gui</Filter>
     </ClCompile>
     <ClInclude Include="..\app\gui\gui_app.h">
@@ -2922,7 +2925,7 @@
     <ClInclude Include="..\app\hardware\hardware.h">
       <Filter>Source files\app\hardware</Filter>
     </ClInclude>
-    <ClCompile Include="..\app\tasks\app_tasks.c">
+    <ClCompile Include="..\app\tasks\app_tasks.cpp">
       <Filter>Source files\app\tasks</Filter>
     </ClCompile>
     <ClInclude Include="..\app\tasks\app_tasks.h">
@@ -3978,21 +3981,12 @@
     <ClCompile Include="ExtraMemories.c">
       <Filter>Source files</Filter>
     </ClCompile>
-    <ClCompile Include="..\app\mvc\auth_controller.cpp">
-      <Filter>Source files\app\mvc</Filter>
-    </ClCompile>
     <ClInclude Include="..\app\mvc\auth_controller.h">
       <Filter>Source files\app\mvc</Filter>
     </ClInclude>
-    <ClCompile Include="..\app\mvc\auth_model.cpp">
-      <Filter>Source files\app\mvc</Filter>
-    </ClCompile>
     <ClInclude Include="..\app\mvc\auth_model.h">
       <Filter>Source files\app\mvc</Filter>
     </ClInclude>
-    <ClCompile Include="..\app\mvc\auth_view.cpp">
-      <Filter>Source files\app\mvc</Filter>
-    </ClCompile>
     <ClInclude Include="..\app\mvc\auth_view.h">
       <Filter>Source files\app\mvc</Filter>
     </ClInclude>
@@ -4003,7 +3997,7 @@
       <Filter>Source files\app\mvc</Filter>
     </ClInclude>
     <ClCompile Include="..\app\drivers\flash\flash_rw.c">
-      <Filter>Source files</Filter>
+      <Filter>Source files\app\drivers\flash</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -4014,7 +4008,7 @@
       <Filter>Header files</Filter>
     </ClInclude>
     <ClInclude Include="..\app\drivers\flash\flash_rw.h">
-      <Filter>Header files</Filter>
+      <Filter>Source files\app\drivers\flash</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

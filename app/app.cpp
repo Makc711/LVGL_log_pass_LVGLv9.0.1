@@ -1,5 +1,5 @@
 ﻿/**
- * @file app.c
+ * @file app.cpp
  *
  */
 
@@ -18,7 +18,6 @@
 #else
 #include <Windows.h>
 #include <LvglWindowsIconResource.h>
-#include "lv_windows_display.h"
 #endif
 
 /**********************
@@ -56,7 +55,7 @@ error_code_t app_main(void)
   if (res) { return res; }
 
   app_create_tasks();
-  gui_app();
+  gui_create();
   mvc_init();
 
   return ok;

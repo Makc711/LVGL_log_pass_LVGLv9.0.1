@@ -19,11 +19,6 @@
 static void touchpad_read(lv_indev_t* indev, lv_indev_data_t* data);
 
 /**********************
- *  STATIC VARIABLES
- **********************/
-static TS_StateTypeDef TS_State;
-
-/**********************
  *   GLOBAL FUNCTIONS
  **********************/
 
@@ -55,11 +50,12 @@ static void touchpad_read(lv_indev_t* indev, lv_indev_data_t* data)
   static lv_point_t last_point = { 0, 0};
   BSP_LED_Toggle(LED1);
 
-  BSP_TS_GetState(&TS_State);
-  if(TS_State.touchDetected) 
+  TS_StateTypeDef ts_state;
+  BSP_TS_GetState(&ts_state);
+  if(ts_state.touchDetected) 
   {
-    data->point.x = TS_State.touchX[0];
-    data->point.y = TS_State.touchY[0];
+    data->point.x = ts_state.touchX[0];
+    data->point.y = ts_state.touchY[0];
     last_point = data->point;
     data->state = LV_INDEV_STATE_PRESSED;
   }
