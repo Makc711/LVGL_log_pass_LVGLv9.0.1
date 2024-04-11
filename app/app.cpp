@@ -9,7 +9,6 @@
 #include "app.h"
 #include "app_tasks.h"
 #include "lvgl.h"
-#include "gui/gui_app.h"
 #ifdef EMBEDDED
 #include "memory.h"
 #include "hardware.h"
@@ -48,14 +47,19 @@ error_code_t app_main()
 
   lv_init();
 
-  error_code_t res = display_init();
-  if (res != error_code_t::OK) { return res; }
+  if (const error_code_t res = display_init(); 
+    res != error_code_t::OK)
+  {
+    return res;
+  }
 
-  res = input_device_init();
-  if (res != error_code_t::OK) { return res; }
+  if (const error_code_t res = input_device_init(); 
+    res != error_code_t::OK)
+  {
+    return res;
+  }
 
   app_create_tasks();
-  gui_create();
 
   return error_code_t::OK;
 }

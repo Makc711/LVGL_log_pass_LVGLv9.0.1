@@ -8,6 +8,7 @@
  *********************/
 #include "app_tasks.h"
 #include "gui/lvgl/lvgl.h"
+#include "gui/gui_app.h"
 #include "memory.h"
 #include "auth_model.h"
 #include "auth_view.h"
@@ -109,10 +110,7 @@ void app_mutex_unlock()
 #ifdef EMBEDDED
   xSemaphoreGive(g_mutex_semaphore);
 #else
-  if (g_mutex_semaphore.try_lock())
-  {
-    g_mutex_semaphore.unlock();
-  }
+  g_mutex_semaphore.unlock();
 #endif
 }
 
@@ -121,6 +119,8 @@ void app_mutex_unlock()
  **********************/
 static void task_lvgl(void* pv_parameters)
 {
+  gui_create();
+
   for (;;)
   {
     app_mutex_lock();
