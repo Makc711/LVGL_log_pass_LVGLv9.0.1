@@ -64,9 +64,54 @@ flowchart TD
     I2 --> D2
 ```
 
-## ООП:
+## Диаграмма классов:
 
+```mermaid
+classDiagram
+    class auth_model {
+        - const char* f_username
+        - const char* f_password
+        - int f_counter
+        - bool f_is_auth_succeed
+        + auth_model(const char* username, const char* password)
+        + int get_attempts_counter() const
+        + bool is_auth_succeed() const
+        - void authenticate(const char* username, const char* password)
+        - void reset()
+    }
 
+    class observable {
+        - std::vector<observer*> f_observers
+        + void add_observer(observer* observer)
+        # void notify_update() const
+    }
+
+    class auth_view {
+        - auth_model& f_model
+        + auth_view(auth_model& model)
+        + void update() override
+        - static void show_success_message()
+        - static void show_failure_message(const int attempts)
+        - static void set_profile_panel_mode(const panel_mode_t mode)
+    }
+
+    class observer {
+        + virtual ~observer() = default
+        + virtual void update() = 0
+    }
+
+    class auth_controller {
+        - auth_model& f_model
+        + auth_controller(auth_model& model)
+        + void authenticate_user(const char* username, const char* password) const
+        + void set_default_state() const
+    }
+
+    auth_model <|-- observable
+    auth_view --|> observer
+    auth_view --> auth_model
+    auth_controller --> auth_model
+```
 
 ## Использованные возможности C++11 и выше:
 
