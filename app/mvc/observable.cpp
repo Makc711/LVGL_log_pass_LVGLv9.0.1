@@ -9,9 +9,8 @@ void observable::add_observer(observer* observer)
 
 void observable::notify_update() const
 {
-  const size_t size = f_observers.size();
-  for (size_t i = 0; i < size; i++)
+  for (const auto& observer : f_observers) 
   {
-    f_observers[i]->update();
+    observer->update();
   }
 }

@@ -86,8 +86,7 @@ void app_create_tasks()
 
 void update_log_pass(const char* username, const char* password)
 {
-  g_log_pass.username = username;
-  g_log_pass.password = password;
+  g_log_pass = { username, password };
 
 #ifdef EMBEDDED
   xTaskNotifyGive(g_task_mvc_handle);

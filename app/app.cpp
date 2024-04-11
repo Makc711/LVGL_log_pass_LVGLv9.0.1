@@ -9,9 +9,9 @@
 #include "app.h"
 #include "app_tasks.h"
 #include "lvgl.h"
-#include "memory.h"
 #include "gui/gui_app.h"
 #ifdef EMBEDDED
+#include "memory.h"
 #include "hardware.h"
 #include "tft.h"
 #include "touchpad.h"
@@ -30,17 +30,17 @@ lv_display_t* g_display;
 /**********************
  *  STATIC PROTOTYPES
  **********************/
-static error_code_t display_init(void);
-static error_code_t input_device_init(void);
+static error_code_t display_init();
+static error_code_t input_device_init();
 #ifndef EMBEDDED
-static error_code_t windows_display_init(void);
-static error_code_t windows_input_device_init(void);
+static error_code_t windows_display_init();
+static error_code_t windows_input_device_init();
 #endif
 
 /**********************
  *   GLOBAL FUNCTIONS
  **********************/
-error_code_t app_main(void)
+error_code_t app_main()
 {
 #ifdef EMBEDDED
   hardware_init();
@@ -49,46 +49,52 @@ error_code_t app_main(void)
   lv_init();
 
   error_code_t res = display_init();
-  if (res) { return res; }
+  if (res != error_code_t::OK) { return res; }
 
   res = input_device_init();
-  if (res) { return res; }
+  if (res != error_code_t::OK) { return res; }
 
   app_create_tasks();
   gui_create();
 
-  return OK;
+  return error_code_t::OK;
 }
 
 /**********************
  *   STATIC FUNCTIONS
  **********************/
-static error_code_t display_init(void)
+static error_code_t display_init()
 {
 #ifdef EMBEDDED
   tft_init();
 #else
-  const error_code_t res = windows_display_init();
-  if (res) { return res; }
+  if (const error_code_t res = windows_display_init();
+    res != error_code_t::OK)
+  {
+    return res;
+  }
 #endif
 
-  return OK;
+  return error_code_t::OK;
 }
 
-static error_code_t input_device_init(void)
+static error_code_t input_device_init()
 {
 #ifdef EMBEDDED
   touchpad_init();
 #else
-  const error_code_t res = windows_input_device_init();
-  if (res) { return res; }
+  if (const error_code_t res = windows_input_device_init();
+    res != error_code_t::OK)
+  {
+    return res;
+  }
 #endif
 
-  return OK;
+  return error_code_t::OK;
 }
 
 #ifndef EMBEDDED
-static error_code_t windows_display_init(void)
+static error_code_t windows_display_init()
 {
 #if LV_TXT_ENC == LV_TXT_ENC_UTF8
   SetConsoleCP(CP_UTF8);
@@ -104,49 +110,48 @@ static error_code_t windows_display_init(void)
       true);
   if (!g_display)
   {
-    return ERROR_CREATE_DISPLAY;
+    return error_code_t::ERROR_CREATE_DISPLAY;
   }
 
   HWND window_handle = lv_windows_get_display_window_handle(g_display);
   if (!window_handle)
   {
-    return ERROR_GET_DISPLAY_HANDLE;
+    return error_code_t::ERROR_GET_DISPLAY_HANDLE;
   }
 
-  HICON icon_handle = LoadIconW(
-      GetModuleHandleW(NULL),
-      MAKEINTRESOURCE(IDI_LVGL_WINDOWS));
-  if (icon_handle)
+  if (HICON icon_handle = LoadIconW(
+    GetModuleHandleW(nullptr),
+    MAKEINTRESOURCE(IDI_LVGL_WINDOWS)))
   {
     SendMessageW(
         window_handle,
         WM_SETICON,
         TRUE,
-        (LPARAM)icon_handle);
+        reinterpret_cast<LPARAM>(icon_handle));
     SendMessageW(
         window_handle,
         WM_SETICON,
         FALSE,
-        (LPARAM)icon_handle);
+        reinterpret_cast<LPARAM>(icon_handle));
   }
 
-  return OK;
+  return error_code_t::OK;
 }
 
-static error_code_t windows_input_device_init(void)
+static error_code_t windows_input_device_init()
 {
-  lv_indev_t* pointer_indev = lv_windows_acquire_pointer_indev(g_display);
-  if (!pointer_indev)
+  if (const lv_indev_t* pointer_indev = lv_windows_acquire_pointer_indev(g_display); 
+    !pointer_indev)
   {
-    return ERROR_POINTER_INDEV;
+    return error_code_t::ERROR_POINTER_INDEV;
   }
 
-  lv_indev_t* keypad_indev = lv_windows_acquire_keypad_indev(g_display);
-  if (!keypad_indev)
+  if (const lv_indev_t* keypad_indev = lv_windows_acquire_keypad_indev(g_display); 
+    !keypad_indev)
   {
-    return ERROR_KEYPAD_INDEV;
+    return error_code_t::ERROR_KEYPAD_INDEV;
   }
 
-  return OK;
+  return error_code_t::OK;
 }
 #endif

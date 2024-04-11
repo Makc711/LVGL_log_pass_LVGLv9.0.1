@@ -2,9 +2,10 @@
 
 int main()
 {
-  if (const error_code_t res = app_main())
+  if (const error_code_t res = app_main();
+    res != error_code_t::OK)
   {
-    return res;
+    return static_cast<int>(res);
   }
 
   while (true) {}

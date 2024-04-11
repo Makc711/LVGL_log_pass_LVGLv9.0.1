@@ -193,11 +193,11 @@ static void gui_create_profile_panel(lv_obj_t* parent)
 static void ta_event_cb(lv_event_t* e)
 {
   lv_obj_t* parent = lv_screen_active();
-  const lv_event_code_t code = lv_event_get_code(e);
   const auto ta = static_cast<lv_obj_t*>(lv_event_get_target(e));
   const auto kb = static_cast<lv_obj_t*>(lv_event_get_user_data(e));
 
-  if (code == LV_EVENT_CLICKED)
+  if (const lv_event_code_t code = lv_event_get_code(e); 
+    code == LV_EVENT_CLICKED)
   {
     if (lv_indev_get_type(lv_indev_active()) != LV_INDEV_TYPE_KEYPAD)
     {
