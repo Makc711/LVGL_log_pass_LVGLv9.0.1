@@ -164,3 +164,13 @@ classDiagram
     - Использование переменных типа инициализирующего значения (ключевое слово ***auto*** в указании типа).
     - Использование директивы ***using*** для создания псевдонима типа данных.
     - (C++17) Атрибут ***[[nodiscard]]*** для указания необходимости использования возвращаемого значения.
+
+## Видео демонстрации работы
+
+**Windows Simulator:**
+
+[![WindowsSimulator](https://i9.ytimg.com/vi_webp/RQeSUsR3VE0/mq2.webp?sqp=CJi84LAG-oaymwEmCMACELQB8quKqQMa8AEB-AHeA4ACsAKKAgwIABABGGUgZShlMA8=&rs=AOn4CLB_iK3Nn_NjloTT_5SawvgZPrcgSg)](https://youtu.be/RQeSUsR3VE0)
+
+**Отладочная плата STM32F746G-DISCOVERY:**
+
+[![Отладочная плата STM32F746G-DISCOVERY](https://i9.ytimg.com/vi/dROaekssqAs/mq2.jpg?sqp=CPDA4LAG-oaymwEmCMACELQB8quKqQMa8AEB-AHUBoAC4AOKAgwIABABGEkgSyhyMA8%3D&rs=AOn4CLDoWDjVlHsB9ozaAGn7e0-0BRYycg&retry=4)](https://youtu.be/dROaekssqAs)
