@@ -169,8 +169,10 @@ classDiagram
 
 **Windows Simulator:**
 
-[![WindowsSimulator](https://i9.ytimg.com/vi_webp/RQeSUsR3VE0/mq2.webp?sqp=CJi84LAG-oaymwEmCMACELQB8quKqQMa8AEB-AHeA4ACsAKKAgwIABABGGUgZShlMA8=&rs=AOn4CLB_iK3Nn_NjloTT_5SawvgZPrcgSg)](https://youtu.be/RQeSUsR3VE0)
+[![WindowsSimulator](https://github.com/Makc711/LVGL_log_pass_LVGLv9.0.1/assets/40514121/a554ef7e-f321-4669-8824-b3d4cc959fb8)](https://youtu.be/RQeSUsR3VE0)
+
+------------------------------------------------------------------------------------------------------------
 
 **Отладочная плата STM32F746G-DISCOVERY:**
 
-[![Отладочная плата STM32F746G-DISCOVERY](https://i9.ytimg.com/vi/dROaekssqAs/mq2.jpg?sqp=CPDA4LAG-oaymwEmCMACELQB8quKqQMa8AEB-AHUBoAC4AOKAgwIABABGEkgSyhyMA8%3D&rs=AOn4CLDoWDjVlHsB9ozaAGn7e0-0BRYycg&retry=4)](https://youtu.be/dROaekssqAs)
+[![Отладочная плата STM32F746G-DISCOVERY](https://github.com/Makc711/LVGL_log_pass_LVGLv9.0.1/assets/40514121/36149adc-9e0e-43a3-ac7c-fa91883f0dee)](https://youtu.be/dROaekssqAs)
