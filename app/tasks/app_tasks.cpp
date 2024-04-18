@@ -64,8 +64,8 @@ void app_create_tasks()
 #ifdef EMBEDDED
   g_mutex_semaphore = xSemaphoreCreateMutex();
   TaskHandle_t g_task_lvgl_handle;
-  xTaskCreate(task_lvgl, "task_lvgl", 1000, nullptr, makeFreeRtosPriority(osPriorityNormal), &g_task_lvgl_handle);
-  xTaskCreate(task_mvc, "task_mvc", 1000, nullptr, uxTaskPriorityGet(g_task_lvgl_handle) + 1, &g_task_mvc_handle);
+  xTaskCreate(task_lvgl, "task_lvgl", 900, nullptr, makeFreeRtosPriority(osPriorityNormal), &g_task_lvgl_handle);
+  xTaskCreate(task_mvc, "task_mvc", 400, nullptr, uxTaskPriorityGet(g_task_lvgl_handle) + 1, &g_task_mvc_handle);
 #else
   std::thread lvgl_thread(task_lvgl, nullptr);
   std::thread mvc_thread(task_mvc, nullptr);

@@ -51,7 +51,33 @@ osThreadId defaultTaskHandle;
 
 /* Private function prototypes -----------------------------------------------*/
 /* USER CODE BEGIN FunctionPrototypes */
+#ifdef DEBUG
+#if configUSE_TRACE_FACILITY
+#include <stdio.h>
+#include <string.h>
 
+char str[64];
+
+void vTaskGetRunTimeStats(char *pcWriteBuffer)
+{
+  volatile UBaseType_t uxArraySize = uxTaskGetNumberOfTasks();
+  TaskStatus_t *pxTaskStatusArray = (TaskStatus_t *)pvPortMalloc(uxArraySize * sizeof(TaskStatus_t));
+
+  if (pxTaskStatusArray != NULL)
+  {
+    uxArraySize = uxTaskGetSystemState(pxTaskStatusArray, uxArraySize, NULL);
+
+    for (UBaseType_t i = 0; i < uxArraySize; ++i)
+    {
+      sprintf(pcWriteBuffer, "%s=%u  ", pxTaskStatusArray[i].pcTaskName, pxTaskStatusArray[i].usStackHighWaterMark);
+      pcWriteBuffer += strlen((char *) pcWriteBuffer);
+    }
+
+    vPortFree(pxTaskStatusArray);
+  }
+}
+#endif
+#endif
 /* USER CODE END FunctionPrototypes */
 
 void StartDefaultTask(void const * argument);
@@ -181,6 +207,11 @@ void StartDefaultTask(void const * argument)
   /* Infinite loop */
   for(;;)
   {
+#ifdef DEBUG
+#if configUSE_TRACE_FACILITY
+    vTaskGetRunTimeStats(str);
+#endif
+#endif
     osDelay(1);
   }
   /* USER CODE END StartDefaultTask */
