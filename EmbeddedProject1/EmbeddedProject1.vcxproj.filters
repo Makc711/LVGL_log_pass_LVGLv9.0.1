@@ -1165,6 +1165,9 @@
     <Filter Include="Source files\app\drivers\flash">
       <UniqueIdentifier>{0da860a0-6a0a-496a-a3e7-04cdac0d8a55}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Header files\app\drivers\flash">
+      <UniqueIdentifier>{11335a34-f53b-4c70-b98d-62846a3887f7}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="..\Startup\startup_stm32f746nghx.S">

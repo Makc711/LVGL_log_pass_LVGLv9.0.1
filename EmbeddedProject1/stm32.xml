@@ -64,7 +64,7 @@
     <AllDependencies>
       <ProjectDependency>
         <RelativePath>..\.cproject</RelativePath>
-        <Timestamp>133556051007030362</Timestamp>
+        <Timestamp>133579178878869875</Timestamp>
       </ProjectDependency>
     </AllDependencies>
     <RootDirectory>
@@ -83,6 +83,17 @@
             <VirtualDirectorySnapshot>
               <Name>drivers</Name>
               <Subdirectories>
+                <VirtualDirectorySnapshot>
+                  <Name>flash</Name>
+                  <Files>
+                    <VirtualFileSnapshot>
+                      <RelativePath>..\app\drivers\flash\flash_rw.c</RelativePath>
+                    </VirtualFileSnapshot>
+                    <VirtualFileSnapshot>
+                      <RelativePath>..\app\drivers\flash\flash_rw.h</RelativePath>
+                    </VirtualFileSnapshot>
+                  </Files>
+                </VirtualDirectorySnapshot>
                 <VirtualDirectorySnapshot>
                   <Name>tft</Name>
                   <Files>
@@ -2972,7 +2983,7 @@
               </Subdirectories>
               <Files>
                 <VirtualFileSnapshot>
-                  <RelativePath>..\app\gui\gui_app.c</RelativePath>
+                  <RelativePath>..\app\gui\gui_app.cpp</RelativePath>
                 </VirtualFileSnapshot>
                 <VirtualFileSnapshot>
                   <RelativePath>..\app\gui\gui_app.h</RelativePath>
@@ -3015,10 +3026,13 @@
                   <RelativePath>..\app\mvc\auth_view.h</RelativePath>
                 </VirtualFileSnapshot>
                 <VirtualFileSnapshot>
-                  <RelativePath>..\app\mvc\mvc.cpp</RelativePath>
+                  <RelativePath>..\app\mvc\observable.cpp</RelativePath>
                 </VirtualFileSnapshot>
                 <VirtualFileSnapshot>
-                  <RelativePath>..\app\mvc\mvc.h</RelativePath>
+                  <RelativePath>..\app\mvc\observable.h</RelativePath>
+                </VirtualFileSnapshot>
+                <VirtualFileSnapshot>
+                  <RelativePath>..\app\mvc\observer.h</RelativePath>
                 </VirtualFileSnapshot>
               </Files>
             </VirtualDirectorySnapshot>
@@ -3026,7 +3040,7 @@
               <Name>tasks</Name>
               <Files>
                 <VirtualFileSnapshot>
-                  <RelativePath>..\app\tasks\app_tasks.c</RelativePath>
+                  <RelativePath>..\app\tasks\app_tasks.cpp</RelativePath>
                 </VirtualFileSnapshot>
                 <VirtualFileSnapshot>
                   <RelativePath>..\app\tasks\app_tasks.h</RelativePath>
@@ -3312,10 +3326,19 @@
           </Subdirectories>
           <Files>
             <VirtualFileSnapshot>
-              <RelativePath>..\app\app.c</RelativePath>
+              <RelativePath>..\app\app.cpp</RelativePath>
             </VirtualFileSnapshot>
             <VirtualFileSnapshot>
               <RelativePath>..\app\app.h</RelativePath>
+            </VirtualFileSnapshot>
+            <VirtualFileSnapshot>
+              <RelativePath>..\app\memory.cpp</RelativePath>
+            </VirtualFileSnapshot>
+            <VirtualFileSnapshot>
+              <RelativePath>..\app\memory.h</RelativePath>
+            </VirtualFileSnapshot>
+            <VirtualFileSnapshot>
+              <RelativePath>..\app\static_string.h</RelativePath>
             </VirtualFileSnapshot>
           </Files>
         </VirtualDirectorySnapshot>
