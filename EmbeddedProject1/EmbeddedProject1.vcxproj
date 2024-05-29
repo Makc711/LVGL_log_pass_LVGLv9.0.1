@@ -44,7 +44,7 @@
     <ClCompile>
       <CLanguageStandard>
       </CLanguageStandard>
-      <AdditionalIncludeDirectories>../app/drivers/flash;..\Inc;..\Drivers\STM32F7xx_HAL_Driver\Inc;..\Drivers\STM32F7xx_HAL_Driver\Inc\Legacy;..\Middlewares\Third_Party\FreeRTOS\Source\include;..\Middlewares\Third_Party\FreeRTOS\Source\CMSIS_RTOS;..\Middlewares\Third_Party\FreeRTOS\Source\portable\GCC\ARM_CM7\r0p1;..\Drivers\CMSIS\Device\ST\STM32F7xx\Include;..\Drivers\CMSIS\Include;..\app;..\app\gui;..\app\gui\lvgl;..\app\gui\lvgl\src;..\app\hardware;..\app\tasks;..\app\drivers\tft;..\app\drivers\touchpad;..\app\Utilities\STM32746G-Discovery;.;..\app\mvc;%(ClCompile.AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>../app/drivers/flash;..\Inc;..\Drivers\STM32F7xx_HAL_Driver\Inc;..\Drivers\STM32F7xx_HAL_Driver\Inc\Legacy;..\Middlewares\Third_Party\FreeRTOS\Source\include;..\Middlewares\Third_Party\FreeRTOS\Source\CMSIS_RTOS;..\Middlewares\Third_Party\FreeRTOS\Source\portable\GCC\ARM_CM7\r0p1;..\Drivers\CMSIS\Device\ST\STM32F7xx\Include;..\Drivers\CMSIS\Include;..\app;..\app\gui;..\app\gui\lvgl;..\app\gui\lvgl\src;..\app\hardware;..\app\tasks;..\app\drivers\tft;..\app\drivers\touchpad;..\app\Utilities\STM32746G-Discovery;.;..\app\mvc;..\app\drivers\flash;%(ClCompile.AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <PreprocessorDefinitions>DEBUG=1;USE_HAL_DRIVER;STM32F746xx;EMBEDDED;%(ClCompile.PreprocessorDefinitions)</PreprocessorDefinitions>
       <AdditionalOptions />
       <CPPLanguageStandard>CPP1Z</CPPLanguageStandard>
@@ -62,7 +62,7 @@
     <ClCompile>
       <CLanguageStandard>
       </CLanguageStandard>
-      <AdditionalIncludeDirectories>../app/drivers/flash;..\Inc;..\Drivers\STM32F7xx_HAL_Driver\Inc;..\Drivers\STM32F7xx_HAL_Driver\Inc\Legacy;..\Middlewares\Third_Party\FreeRTOS\Source\include;..\Middlewares\Third_Party\FreeRTOS\Source\CMSIS_RTOS;..\Middlewares\Third_Party\FreeRTOS\Source\portable\GCC\ARM_CM7\r0p1;..\Drivers\CMSIS\Device\ST\STM32F7xx\Include;..\Drivers\CMSIS\Include;..\app;..\app\gui;..\app\gui\lvgl;..\app\gui\lvgl\src;..\app\hardware;..\app\tasks;..\app\drivers\tft;..\app\drivers\touchpad;..\app\Utilities\STM32746G-Discovery;.;..\app\mvc;%(ClCompile.AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>../app/drivers/flash;..\Inc;..\Drivers\STM32F7xx_HAL_Driver\Inc;..\Drivers\STM32F7xx_HAL_Driver\Inc\Legacy;..\Middlewares\Third_Party\FreeRTOS\Source\include;..\Middlewares\Third_Party\FreeRTOS\Source\CMSIS_RTOS;..\Middlewares\Third_Party\FreeRTOS\Source\portable\GCC\ARM_CM7\r0p1;..\Drivers\CMSIS\Device\ST\STM32F7xx\Include;..\Drivers\CMSIS\Include;..\app;..\app\gui;..\app\gui\lvgl;..\app\gui\lvgl\src;..\app\hardware;..\app\tasks;..\app\drivers\tft;..\app\drivers\touchpad;..\app\Utilities\STM32746G-Discovery;.;..\app\mvc;..\app\drivers\flash;%(ClCompile.AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <PreprocessorDefinitions>NDEBUG=1;RELEASE=1;USE_HAL_DRIVER;STM32F746xx;EMBEDDED;%(ClCompile.PreprocessorDefinitions)</PreprocessorDefinitions>
       <AdditionalOptions />
       <CPPLanguageStandard>CPP1Z</CPPLanguageStandard>
@@ -675,8 +675,6 @@
     <ClInclude Include="..\app\gui\lvgl\src\widgets\tileview\lv_tileview.h" />
     <ClCompile Include="..\app\gui\lvgl\src\widgets\win\lv_win.c" />
     <ClInclude Include="..\app\gui\lvgl\src\widgets\win\lv_win.h" />
-    <ClCompile Include="..\app\hardware\hardware.c" />
-    <ClInclude Include="..\app\hardware\hardware.h" />
     <ClCompile Include="..\app\tasks\app_tasks.cpp" />
     <ClInclude Include="..\app\memory.h" />
     <ClInclude Include="..\app\mvc\observable.h" />
@@ -736,23 +734,12 @@
     <ClInclude Include="..\app\Utilities\STM32746G-Discovery\stm32746g_discovery_sdram.h" />
     <ClCompile Include="..\app\Utilities\STM32746G-Discovery\stm32746g_discovery_ts.c" />
     <ClInclude Include="..\app\Utilities\STM32746G-Discovery\stm32746g_discovery_ts.h" />
-    <ClCompile Include="..\Src\adc.c" />
-    <ClCompile Include="..\Src\dma.c" />
-    <ClCompile Include="..\Src\dma2d.c" />
-    <ClCompile Include="..\Src\fmc.c" />
     <ClCompile Include="..\Src\freertos.c" />
-    <ClCompile Include="..\Src\gpio.c" />
-    <ClCompile Include="..\Src\ltdc.c" />
-    <ClCompile Include="..\Src\main.c" />
-    <ClCompile Include="..\Src\quadspi.c" />
     <ClCompile Include="..\Src\stm32f7xx_hal_msp.c" />
     <ClCompile Include="..\Src\stm32f7xx_hal_timebase_tim.c" />
-    <ClCompile Include="..\Src\stm32f7xx_it.c" />
     <ClCompile Include="..\Src\syscalls.c" />
     <ClCompile Include="..\Src\sysmem.c" />
     <ClCompile Include="..\Src\system_stm32f7xx.c" />
-    <ClCompile Include="..\Src\tim.c" />
-    <ClCompile Include="..\Src\usart.c" />
     <ClCompile Include="..\Middlewares\Third_Party\FreeRTOS\Source\croutine.c" />
     <ClCompile Include="..\Middlewares\Third_Party\FreeRTOS\Source\event_groups.c" />
     <ClCompile Include="..\Middlewares\Third_Party\FreeRTOS\Source\list.c" />
@@ -807,8 +794,6 @@
     <ClInclude Include="..\Drivers\CMSIS\Include\mpu_armv8.h" />
     <ClInclude Include="..\Drivers\CMSIS\Include\tz_context.h" />
     <ClInclude Include="..\Drivers\STM32F7xx_HAL_Driver\Inc\stm32f7xx_hal.h" />
-    <ClInclude Include="..\Drivers\STM32F7xx_HAL_Driver\Inc\stm32f7xx_hal_adc.h" />
-    <ClInclude Include="..\Drivers\STM32F7xx_HAL_Driver\Inc\stm32f7xx_hal_adc_ex.h" />
     <ClInclude Include="..\Drivers\STM32F7xx_HAL_Driver\Inc\stm32f7xx_hal_cortex.h" />
     <ClInclude Include="..\Drivers\STM32F7xx_HAL_Driver\Inc\stm32f7xx_hal_def.h" />
     <ClInclude Include="..\Drivers\STM32F7xx_HAL_Driver\Inc\stm32f7xx_hal_dma.h" />
@@ -834,7 +819,6 @@
     <ClInclude Include="..\Drivers\STM32F7xx_HAL_Driver\Inc\stm32f7xx_hal_tim_ex.h" />
     <ClInclude Include="..\Drivers\STM32F7xx_HAL_Driver\Inc\stm32f7xx_hal_uart.h" />
     <ClInclude Include="..\Drivers\STM32F7xx_HAL_Driver\Inc\stm32f7xx_hal_uart_ex.h" />
-    <ClInclude Include="..\Drivers\STM32F7xx_HAL_Driver\Inc\stm32f7xx_ll_adc.h" />
     <ClInclude Include="..\Drivers\STM32F7xx_HAL_Driver\Inc\stm32f7xx_ll_bus.h" />
     <ClInclude Include="..\Drivers\STM32F7xx_HAL_Driver\Inc\stm32f7xx_ll_cortex.h" />
     <ClInclude Include="..\Drivers\STM32F7xx_HAL_Driver\Inc\stm32f7xx_ll_dma.h" />
@@ -845,13 +829,10 @@
     <ClInclude Include="..\Drivers\STM32F7xx_HAL_Driver\Inc\stm32f7xx_ll_pwr.h" />
     <ClInclude Include="..\Drivers\STM32F7xx_HAL_Driver\Inc\stm32f7xx_ll_rcc.h" />
     <ClInclude Include="..\Drivers\STM32F7xx_HAL_Driver\Inc\stm32f7xx_ll_system.h" />
-    <ClInclude Include="..\Drivers\STM32F7xx_HAL_Driver\Inc\stm32f7xx_ll_tim.h" />
     <ClInclude Include="..\Drivers\STM32F7xx_HAL_Driver\Inc\stm32f7xx_ll_usart.h" />
     <ClInclude Include="..\Drivers\STM32F7xx_HAL_Driver\Inc\stm32f7xx_ll_utils.h" />
     <ClInclude Include="..\Drivers\STM32F7xx_HAL_Driver\Inc\Legacy\stm32_hal_legacy.h" />
     <ClCompile Include="..\Drivers\STM32F7xx_HAL_Driver\Src\stm32f7xx_hal.c" />
-    <ClCompile Include="..\Drivers\STM32F7xx_HAL_Driver\Src\stm32f7xx_hal_adc.c" />
-    <ClCompile Include="..\Drivers\STM32F7xx_HAL_Driver\Src\stm32f7xx_hal_adc_ex.c" />
     <ClCompile Include="..\Drivers\STM32F7xx_HAL_Driver\Src\stm32f7xx_hal_cortex.c" />
     <ClCompile Include="..\Drivers\STM32F7xx_HAL_Driver\Src\stm32f7xx_hal_dma.c" />
     <ClCompile Include="..\Drivers\STM32F7xx_HAL_Driver\Src\stm32f7xx_hal_dma2d.c" />
@@ -878,19 +859,10 @@
     <ClCompile Include="..\Drivers\STM32F7xx_HAL_Driver\Src\stm32f7xx_ll_fmc.c" />
     <ClInclude Include="ExtraMemories.h" />
     <None Include="stm32.props" />
-    <ClInclude Include="..\Inc\adc.h" />
-    <ClInclude Include="..\Inc\dma.h" />
-    <ClInclude Include="..\Inc\dma2d.h" />
-    <ClInclude Include="..\Inc\fmc.h" />
     <ClInclude Include="..\Inc\FreeRTOSConfig.h" />
-    <ClInclude Include="..\Inc\gpio.h" />
-    <ClInclude Include="..\Inc\ltdc.h" />
     <ClInclude Include="..\Inc\main.h" />
-    <ClInclude Include="..\Inc\quadspi.h" />
     <ClInclude Include="..\Inc\stm32f7xx_hal_conf.h" />
     <ClInclude Include="..\Inc\stm32f7xx_it.h" />
-    <ClInclude Include="..\Inc\tim.h" />
-    <ClInclude Include="..\Inc\usart.h" />
     <None Include="EmbeddedProject1-Debug.vgdbsettings" />
     <None Include="EmbeddedProject1-Release.vgdbsettings" />
     <None Include="stm32.xml" />
@@ -1036,5 +1008,7 @@
     <ClInclude Include="..\app\mvc\auth_controller.h" />
     <ClInclude Include="..\app\mvc\auth_model.h" />
     <ClInclude Include="..\app\mvc\auth_view.h" />
+    <ClCompile Include="..\Src\main.cpp" />
+    <ClCompile Include="..\Src\stm32f7xx_it.cpp" />
   </ItemGroup>
 </Project>

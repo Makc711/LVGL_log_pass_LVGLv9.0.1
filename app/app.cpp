@@ -10,8 +10,6 @@
 #include "app_tasks.h"
 #include "lvgl.h"
 #ifdef EMBEDDED
-#include "memory.h"
-#include "hardware.h"
 #include "tft.h"
 #include "touchpad.h"
 #else
@@ -41,10 +39,6 @@ static error_code_t windows_input_device_init();
  **********************/
 error_code_t app_main()
 {
-#ifdef EMBEDDED
-  hardware_init();
-#endif
-
   lv_init();
 
   if (const error_code_t res = display_init(); 
@@ -59,7 +53,7 @@ error_code_t app_main()
     return res;
   }
 
-  app_create_tasks();
+  app_tasks::init();
 
   return error_code_t::OK;
 }

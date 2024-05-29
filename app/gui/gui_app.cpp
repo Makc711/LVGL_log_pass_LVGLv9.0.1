@@ -244,7 +244,7 @@ static void log_in_btn_event_cb(lv_event_t* e)
     }
     else
     {
-      update_log_pass(username, password);
+      app_tasks::update_log_pass(username, password);
     }
   }
 }

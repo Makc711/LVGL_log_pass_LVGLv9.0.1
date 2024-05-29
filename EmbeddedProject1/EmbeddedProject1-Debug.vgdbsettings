@@ -115,7 +115,6 @@
           <string>mon halt</string>
           <string>mon reset init</string>
           <string>load</string>
-          <string>mon reset init</string>
         </StartupCommands>
         <ProgramFLASHUsingExternalTool>false</ProgramFLASHUsingExternalTool>
         <PreferredGDBPort>0</PreferredGDBPort>

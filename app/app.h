@@ -13,7 +13,7 @@ enum class error_code_t
 typedef enum
 #endif
 {
-  OK                       = 0,
+  OK                       =  0,
   ERROR_CREATE_DISPLAY     = -1,
   ERROR_GET_DISPLAY_HANDLE = -2,
   ERROR_POINTER_INDEV      = -3,

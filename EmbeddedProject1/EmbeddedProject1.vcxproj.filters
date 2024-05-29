@@ -370,9 +370,6 @@
     <Filter Include="Source files\app\gui\lvgl\src\widgets\win">
       <UniqueIdentifier>{f3b4b545-de5b-40c8-96b2-8d8f0b0f116d}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Source files\app\hardware">
-      <UniqueIdentifier>{8376478b-a456-4f2d-b2ca-e69f98fd6a81}</UniqueIdentifier>
-    </Filter>
     <Filter Include="Source files\app\tasks">
       <UniqueIdentifier>{68411b39-8400-4c6d-9139-157269935ac1}</UniqueIdentifier>
     </Filter>
@@ -2922,12 +2919,6 @@
     <ClInclude Include="..\app\gui\lvgl\src\widgets\win\lv_win.h">
       <Filter>Source files\app\gui\lvgl\src\widgets\win</Filter>
     </ClInclude>
-    <ClCompile Include="..\app\hardware\hardware.c">
-      <Filter>Source files\app\hardware</Filter>
-    </ClCompile>
-    <ClInclude Include="..\app\hardware\hardware.h">
-      <Filter>Source files\app\hardware</Filter>
-    </ClInclude>
     <ClCompile Include="..\app\tasks\app_tasks.cpp">
       <Filter>Source files\app\tasks</Filter>
     </ClCompile>
@@ -3093,40 +3084,13 @@
     <ClInclude Include="..\app\Utilities\STM32746G-Discovery\stm32746g_discovery_ts.h">
       <Filter>Source files\app\Utilities\STM32746G-Discovery</Filter>
     </ClInclude>
-    <ClCompile Include="..\Src\adc.c">
-      <Filter>Source files\Src</Filter>
-    </ClCompile>
-    <ClCompile Include="..\Src\dma.c">
-      <Filter>Source files\Src</Filter>
-    </ClCompile>
-    <ClCompile Include="..\Src\dma2d.c">
-      <Filter>Source files\Src</Filter>
-    </ClCompile>
-    <ClCompile Include="..\Src\fmc.c">
-      <Filter>Source files\Src</Filter>
-    </ClCompile>
     <ClCompile Include="..\Src\freertos.c">
-      <Filter>Source files\Src</Filter>
-    </ClCompile>
-    <ClCompile Include="..\Src\gpio.c">
-      <Filter>Source files\Src</Filter>
-    </ClCompile>
-    <ClCompile Include="..\Src\ltdc.c">
-      <Filter>Source files\Src</Filter>
-    </ClCompile>
-    <ClCompile Include="..\Src\main.c">
-      <Filter>Source files\Src</Filter>
-    </ClCompile>
-    <ClCompile Include="..\Src\quadspi.c">
       <Filter>Source files\Src</Filter>
     </ClCompile>
     <ClCompile Include="..\Src\stm32f7xx_hal_msp.c">
       <Filter>Source files\Src</Filter>
     </ClCompile>
     <ClCompile Include="..\Src\stm32f7xx_hal_timebase_tim.c">
-      <Filter>Source files\Src</Filter>
-    </ClCompile>
-    <ClCompile Include="..\Src\stm32f7xx_it.c">
       <Filter>Source files\Src</Filter>
     </ClCompile>
     <ClCompile Include="..\Src\syscalls.c">
@@ -3136,12 +3100,6 @@
       <Filter>Source files\Src</Filter>
     </ClCompile>
     <ClCompile Include="..\Src\system_stm32f7xx.c">
-      <Filter>Source files\Src</Filter>
-    </ClCompile>
-    <ClCompile Include="..\Src\tim.c">
-      <Filter>Source files\Src</Filter>
-    </ClCompile>
-    <ClCompile Include="..\Src\usart.c">
       <Filter>Source files\Src</Filter>
     </ClCompile>
     <ClCompile Include="..\Middlewares\Third_Party\FreeRTOS\Source\croutine.c">
@@ -3306,12 +3264,6 @@
     <ClInclude Include="..\Drivers\STM32F7xx_HAL_Driver\Inc\stm32f7xx_hal.h">
       <Filter>Source files\Drivers\STM32F7xx_HAL_Driver\Inc</Filter>
     </ClInclude>
-    <ClInclude Include="..\Drivers\STM32F7xx_HAL_Driver\Inc\stm32f7xx_hal_adc.h">
-      <Filter>Source files\Drivers\STM32F7xx_HAL_Driver\Inc</Filter>
-    </ClInclude>
-    <ClInclude Include="..\Drivers\STM32F7xx_HAL_Driver\Inc\stm32f7xx_hal_adc_ex.h">
-      <Filter>Source files\Drivers\STM32F7xx_HAL_Driver\Inc</Filter>
-    </ClInclude>
     <ClInclude Include="..\Drivers\STM32F7xx_HAL_Driver\Inc\stm32f7xx_hal_cortex.h">
       <Filter>Source files\Drivers\STM32F7xx_HAL_Driver\Inc</Filter>
     </ClInclude>
@@ -3387,9 +3339,6 @@
     <ClInclude Include="..\Drivers\STM32F7xx_HAL_Driver\Inc\stm32f7xx_hal_uart_ex.h">
       <Filter>Source files\Drivers\STM32F7xx_HAL_Driver\Inc</Filter>
     </ClInclude>
-    <ClInclude Include="..\Drivers\STM32F7xx_HAL_Driver\Inc\stm32f7xx_ll_adc.h">
-      <Filter>Source files\Drivers\STM32F7xx_HAL_Driver\Inc</Filter>
-    </ClInclude>
     <ClInclude Include="..\Drivers\STM32F7xx_HAL_Driver\Inc\stm32f7xx_ll_bus.h">
       <Filter>Source files\Drivers\STM32F7xx_HAL_Driver\Inc</Filter>
     </ClInclude>
@@ -3420,9 +3369,6 @@
     <ClInclude Include="..\Drivers\STM32F7xx_HAL_Driver\Inc\stm32f7xx_ll_system.h">
       <Filter>Source files\Drivers\STM32F7xx_HAL_Driver\Inc</Filter>
     </ClInclude>
-    <ClInclude Include="..\Drivers\STM32F7xx_HAL_Driver\Inc\stm32f7xx_ll_tim.h">
-      <Filter>Source files\Drivers\STM32F7xx_HAL_Driver\Inc</Filter>
-    </ClInclude>
     <ClInclude Include="..\Drivers\STM32F7xx_HAL_Driver\Inc\stm32f7xx_ll_usart.h">
       <Filter>Source files\Drivers\STM32F7xx_HAL_Driver\Inc</Filter>
     </ClInclude>
@@ -3433,12 +3379,6 @@
       <Filter>Source files\Drivers\STM32F7xx_HAL_Driver\Inc\Legacy</Filter>
     </ClInclude>
     <ClCompile Include="..\Drivers\STM32F7xx_HAL_Driver\Src\stm32f7xx_hal.c">
-      <Filter>Source files\Drivers\STM32F7xx_HAL_Driver\Src</Filter>
-    </ClCompile>
-    <ClCompile Include="..\Drivers\STM32F7xx_HAL_Driver\Src\stm32f7xx_hal_adc.c">
-      <Filter>Source files\Drivers\STM32F7xx_HAL_Driver\Src</Filter>
-    </ClCompile>
-    <ClCompile Include="..\Drivers\STM32F7xx_HAL_Driver\Src\stm32f7xx_hal_adc_ex.c">
       <Filter>Source files\Drivers\STM32F7xx_HAL_Driver\Src</Filter>
     </ClCompile>
     <ClCompile Include="..\Drivers\STM32F7xx_HAL_Driver\Src\stm32f7xx_hal_cortex.c">
@@ -3516,43 +3456,16 @@
     <None Include="stm32.props">
       <Filter>Source files\Device-specific files</Filter>
     </None>
-    <ClInclude Include="..\Inc\adc.h">
-      <Filter>Header files\Src</Filter>
-    </ClInclude>
-    <ClInclude Include="..\Inc\dma.h">
-      <Filter>Header files\Src</Filter>
-    </ClInclude>
-    <ClInclude Include="..\Inc\dma2d.h">
-      <Filter>Header files\Src</Filter>
-    </ClInclude>
-    <ClInclude Include="..\Inc\fmc.h">
-      <Filter>Header files\Src</Filter>
-    </ClInclude>
     <ClInclude Include="..\Inc\FreeRTOSConfig.h">
       <Filter>Header files\Src</Filter>
     </ClInclude>
-    <ClInclude Include="..\Inc\gpio.h">
-      <Filter>Header files\Src</Filter>
-    </ClInclude>
-    <ClInclude Include="..\Inc\ltdc.h">
-      <Filter>Header files\Src</Filter>
-    </ClInclude>
     <ClInclude Include="..\Inc\main.h">
-      <Filter>Header files\Src</Filter>
-    </ClInclude>
-    <ClInclude Include="..\Inc\quadspi.h">
       <Filter>Header files\Src</Filter>
     </ClInclude>
     <ClInclude Include="..\Inc\stm32f7xx_hal_conf.h">
       <Filter>Header files\Src</Filter>
     </ClInclude>
     <ClInclude Include="..\Inc\stm32f7xx_it.h">
-      <Filter>Header files\Src</Filter>
-    </ClInclude>
-    <ClInclude Include="..\Inc\tim.h">
-      <Filter>Header files\Src</Filter>
-    </ClInclude>
-    <ClInclude Include="..\Inc\usart.h">
       <Filter>Header files\Src</Filter>
     </ClInclude>
     <None Include="EmbeddedProject1-Debug.vgdbsettings">
@@ -4010,6 +3923,12 @@
     </ClCompile>
     <ClCompile Include="..\app\mvc\observable.cpp">
       <Filter>Source files\app\mvc</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Src\main.cpp">
+      <Filter>Source files\Src</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Src\stm32f7xx_it.cpp">
+      <Filter>Source files\Src</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>

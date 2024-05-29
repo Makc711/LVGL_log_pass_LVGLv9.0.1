@@ -26,7 +26,7 @@
  *  
  *----------------------------------------------------------------------------
  *
- * Portions Copyright © 2016 STMicroelectronics International N.V. All rights reserved.
+ * Portions Copyright ï¿½ 2016 STMicroelectronics International N.V. All rights reserved.
  * Portions Copyright (c) 2013 ARM LIMITED
  * All rights reserved.
  * Redistribution and use in source and binary forms, with or without
@@ -468,12 +468,6 @@ osStatus osThreadSetPriority (osThreadId thread_id, osPriority priority);
 /// \return current priority value of the thread function.
 /// \note MUST REMAIN UNCHANGED: \b osThreadGetPriority shall be consistent in every CMSIS-RTOS.
 osPriority osThreadGetPriority (osThreadId thread_id);
-
-/// Convert from CMSIS type osPriority to FreeRTOS priority number.
-/// \param[in]     priority     CMSIS type priority value of the thread function.
-/// \return FreeRTOS type priority value of the thread function.
-/// \note MUST REMAIN UNCHANGED: \b osThreadGetPriority shall be consistent in every CMSIS-RTOS.
-unsigned portBASE_TYPE makeFreeRtosPriority(osPriority priority);
 
 
 //  ==== Generic Wait Functions ====
@@ -1024,6 +1018,8 @@ osStatus osRecursiveMutexWait (osMutexId mutex_id, uint32_t millisec);
 * @retval  count value
 */
 uint32_t osSemaphoreGetCount(osSemaphoreId semaphore_id);
+
+unsigned portBASE_TYPE makeFreeRtosPriority (osPriority priority);
 
 #ifdef  __cplusplus
 }

@@ -41,7 +41,8 @@ void auth_view::update()
 
 void auth_view::set_profile_panel_mode(const panel_mode_t mode)
 {
-  app_mutex_lock();
+  app_tasks::mutex_lvgl_lock();
+
   switch (mode)
   {
     case panel_mode_t::SUCCESS:
@@ -62,20 +63,20 @@ void auth_view::set_profile_panel_mode(const panel_mode_t mode)
       print_text_message("");
       break;
   }
-  app_mutex_unlock();
+  app_tasks::mutex_lvgl_unlock();
 }
 
 void auth_view::show_success_message()
 {
-  app_mutex_lock();
+  app_tasks::mutex_lvgl_lock();
   set_text_message_color(lv_palette_main(LV_PALETTE_GREEN));
   print_text_message("Authentication is correct");
-  app_mutex_unlock();
+  app_tasks::mutex_lvgl_unlock();
 }
 
 void auth_view::show_failure_message(const int attempts)
 {
-  app_mutex_lock();
+  app_tasks::mutex_lvgl_lock();
   set_text_message_color(lv_palette_main(LV_PALETTE_RED));
   if (attempts)
   {
@@ -89,5 +90,5 @@ void auth_view::show_failure_message(const int attempts)
   {
     print_text_message("Entry blocked!");
   }
-  app_mutex_unlock();
+  app_tasks::mutex_lvgl_unlock();
 }

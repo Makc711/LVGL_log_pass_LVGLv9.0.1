@@ -64,7 +64,7 @@
     <AllDependencies>
       <ProjectDependency>
         <RelativePath>..\.cproject</RelativePath>
-        <Timestamp>133579178878869875</Timestamp>
+        <Timestamp>133613891109374121</Timestamp>
       </ProjectDependency>
     </AllDependencies>
     <RootDirectory>
@@ -3346,31 +3346,10 @@
           <Name>Src</Name>
           <Files>
             <VirtualFileSnapshot>
-              <RelativePath>..\Src\adc.c</RelativePath>
-            </VirtualFileSnapshot>
-            <VirtualFileSnapshot>
-              <RelativePath>..\Src\dma.c</RelativePath>
-            </VirtualFileSnapshot>
-            <VirtualFileSnapshot>
-              <RelativePath>..\Src\dma2d.c</RelativePath>
-            </VirtualFileSnapshot>
-            <VirtualFileSnapshot>
-              <RelativePath>..\Src\fmc.c</RelativePath>
-            </VirtualFileSnapshot>
-            <VirtualFileSnapshot>
               <RelativePath>..\Src\freertos.c</RelativePath>
             </VirtualFileSnapshot>
             <VirtualFileSnapshot>
-              <RelativePath>..\Src\gpio.c</RelativePath>
-            </VirtualFileSnapshot>
-            <VirtualFileSnapshot>
-              <RelativePath>..\Src\ltdc.c</RelativePath>
-            </VirtualFileSnapshot>
-            <VirtualFileSnapshot>
-              <RelativePath>..\Src\main.c</RelativePath>
-            </VirtualFileSnapshot>
-            <VirtualFileSnapshot>
-              <RelativePath>..\Src\quadspi.c</RelativePath>
+              <RelativePath>..\Src\main.cpp</RelativePath>
             </VirtualFileSnapshot>
             <VirtualFileSnapshot>
               <RelativePath>..\Src\stm32f7xx_hal_msp.c</RelativePath>
@@ -3379,7 +3358,7 @@
               <RelativePath>..\Src\stm32f7xx_hal_timebase_tim.c</RelativePath>
             </VirtualFileSnapshot>
             <VirtualFileSnapshot>
-              <RelativePath>..\Src\stm32f7xx_it.c</RelativePath>
+              <RelativePath>..\Src\stm32f7xx_it.cpp</RelativePath>
             </VirtualFileSnapshot>
             <VirtualFileSnapshot>
               <RelativePath>..\Src\syscalls.c</RelativePath>
@@ -3391,49 +3370,16 @@
               <RelativePath>..\Src\system_stm32f7xx.c</RelativePath>
             </VirtualFileSnapshot>
             <VirtualFileSnapshot>
-              <RelativePath>..\Src\tim.c</RelativePath>
-            </VirtualFileSnapshot>
-            <VirtualFileSnapshot>
-              <RelativePath>..\Src\usart.c</RelativePath>
-            </VirtualFileSnapshot>
-            <VirtualFileSnapshot>
-              <RelativePath>..\Inc\adc.h</RelativePath>
-            </VirtualFileSnapshot>
-            <VirtualFileSnapshot>
-              <RelativePath>..\Inc\dma.h</RelativePath>
-            </VirtualFileSnapshot>
-            <VirtualFileSnapshot>
-              <RelativePath>..\Inc\dma2d.h</RelativePath>
-            </VirtualFileSnapshot>
-            <VirtualFileSnapshot>
-              <RelativePath>..\Inc\fmc.h</RelativePath>
-            </VirtualFileSnapshot>
-            <VirtualFileSnapshot>
               <RelativePath>..\Inc\FreeRTOSConfig.h</RelativePath>
             </VirtualFileSnapshot>
             <VirtualFileSnapshot>
-              <RelativePath>..\Inc\gpio.h</RelativePath>
-            </VirtualFileSnapshot>
-            <VirtualFileSnapshot>
-              <RelativePath>..\Inc\ltdc.h</RelativePath>
-            </VirtualFileSnapshot>
-            <VirtualFileSnapshot>
               <RelativePath>..\Inc\main.h</RelativePath>
-            </VirtualFileSnapshot>
-            <VirtualFileSnapshot>
-              <RelativePath>..\Inc\quadspi.h</RelativePath>
             </VirtualFileSnapshot>
             <VirtualFileSnapshot>
               <RelativePath>..\Inc\stm32f7xx_hal_conf.h</RelativePath>
             </VirtualFileSnapshot>
             <VirtualFileSnapshot>
               <RelativePath>..\Inc\stm32f7xx_it.h</RelativePath>
-            </VirtualFileSnapshot>
-            <VirtualFileSnapshot>
-              <RelativePath>..\Inc\tim.h</RelativePath>
-            </VirtualFileSnapshot>
-            <VirtualFileSnapshot>
-              <RelativePath>..\Inc\usart.h</RelativePath>
             </VirtualFileSnapshot>
           </Files>
         </VirtualDirectorySnapshot>
@@ -3719,12 +3665,6 @@
                       <RelativePath>..\Drivers\STM32F7xx_HAL_Driver\Inc\stm32f7xx_hal.h</RelativePath>
                     </VirtualFileSnapshot>
                     <VirtualFileSnapshot>
-                      <RelativePath>..\Drivers\STM32F7xx_HAL_Driver\Inc\stm32f7xx_hal_adc.h</RelativePath>
-                    </VirtualFileSnapshot>
-                    <VirtualFileSnapshot>
-                      <RelativePath>..\Drivers\STM32F7xx_HAL_Driver\Inc\stm32f7xx_hal_adc_ex.h</RelativePath>
-                    </VirtualFileSnapshot>
-                    <VirtualFileSnapshot>
                       <RelativePath>..\Drivers\STM32F7xx_HAL_Driver\Inc\stm32f7xx_hal_cortex.h</RelativePath>
                     </VirtualFileSnapshot>
                     <VirtualFileSnapshot>
@@ -3800,9 +3740,6 @@
                       <RelativePath>..\Drivers\STM32F7xx_HAL_Driver\Inc\stm32f7xx_hal_uart_ex.h</RelativePath>
                     </VirtualFileSnapshot>
                     <VirtualFileSnapshot>
-                      <RelativePath>..\Drivers\STM32F7xx_HAL_Driver\Inc\stm32f7xx_ll_adc.h</RelativePath>
-                    </VirtualFileSnapshot>
-                    <VirtualFileSnapshot>
                       <RelativePath>..\Drivers\STM32F7xx_HAL_Driver\Inc\stm32f7xx_ll_bus.h</RelativePath>
                     </VirtualFileSnapshot>
                     <VirtualFileSnapshot>
@@ -3831,9 +3768,6 @@
                     </VirtualFileSnapshot>
                     <VirtualFileSnapshot>
                       <RelativePath>..\Drivers\STM32F7xx_HAL_Driver\Inc\stm32f7xx_ll_system.h</RelativePath>
-                    </VirtualFileSnapshot>
-                    <VirtualFileSnapshot>
-                      <RelativePath>..\Drivers\STM32F7xx_HAL_Driver\Inc\stm32f7xx_ll_tim.h</RelativePath>
                     </VirtualFileSnapshot>
                     <VirtualFileSnapshot>
                       <RelativePath>..\Drivers\STM32F7xx_HAL_Driver\Inc\stm32f7xx_ll_usart.h</RelativePath>
@@ -3845,12 +3779,6 @@
                       <RelativePath>..\Drivers\STM32F7xx_HAL_Driver\Inc\stm32f7xx_hal.h</RelativePath>
                     </VirtualFileSnapshot>
                     <VirtualFileSnapshot>
-                      <RelativePath>..\Drivers\STM32F7xx_HAL_Driver\Inc\stm32f7xx_hal_adc.h</RelativePath>
-                    </VirtualFileSnapshot>
-                    <VirtualFileSnapshot>
-                      <RelativePath>..\Drivers\STM32F7xx_HAL_Driver\Inc\stm32f7xx_hal_adc_ex.h</RelativePath>
-                    </VirtualFileSnapshot>
-                    <VirtualFileSnapshot>
                       <RelativePath>..\Drivers\STM32F7xx_HAL_Driver\Inc\stm32f7xx_hal_cortex.h</RelativePath>
                     </VirtualFileSnapshot>
                     <VirtualFileSnapshot>
@@ -3926,9 +3854,6 @@
                       <RelativePath>..\Drivers\STM32F7xx_HAL_Driver\Inc\stm32f7xx_hal_uart_ex.h</RelativePath>
                     </VirtualFileSnapshot>
                     <VirtualFileSnapshot>
-                      <RelativePath>..\Drivers\STM32F7xx_HAL_Driver\Inc\stm32f7xx_ll_adc.h</RelativePath>
-                    </VirtualFileSnapshot>
-                    <VirtualFileSnapshot>
                       <RelativePath>..\Drivers\STM32F7xx_HAL_Driver\Inc\stm32f7xx_ll_bus.h</RelativePath>
                     </VirtualFileSnapshot>
                     <VirtualFileSnapshot>
@@ -3957,9 +3882,6 @@
                     </VirtualFileSnapshot>
                     <VirtualFileSnapshot>
                       <RelativePath>..\Drivers\STM32F7xx_HAL_Driver\Inc\stm32f7xx_ll_system.h</RelativePath>
-                    </VirtualFileSnapshot>
-                    <VirtualFileSnapshot>
-                      <RelativePath>..\Drivers\STM32F7xx_HAL_Driver\Inc\stm32f7xx_ll_tim.h</RelativePath>
                     </VirtualFileSnapshot>
                     <VirtualFileSnapshot>
                       <RelativePath>..\Drivers\STM32F7xx_HAL_Driver\Inc\stm32f7xx_ll_usart.h</RelativePath>
@@ -3974,12 +3896,6 @@
                   <Files>
                     <VirtualFileSnapshot>
                       <RelativePath>..\Drivers\STM32F7xx_HAL_Driver\Src\stm32f7xx_hal.c</RelativePath>
-                    </VirtualFileSnapshot>
-                    <VirtualFileSnapshot>
-                      <RelativePath>..\Drivers\STM32F7xx_HAL_Driver\Src\stm32f7xx_hal_adc.c</RelativePath>
-                    </VirtualFileSnapshot>
-                    <VirtualFileSnapshot>
-                      <RelativePath>..\Drivers\STM32F7xx_HAL_Driver\Src\stm32f7xx_hal_adc_ex.c</RelativePath>
                     </VirtualFileSnapshot>
                     <VirtualFileSnapshot>
                       <RelativePath>..\Drivers\STM32F7xx_HAL_Driver\Src\stm32f7xx_hal_cortex.c</RelativePath>
@@ -4088,6 +4004,7 @@
             <string>..\app\Utilities\STM32746G-Discovery</string>
             <string>.</string>
             <string>..\app\mvc</string>
+            <string>..\app\drivers\flash</string>
           </IncludeDirectories>
           <PreprocessorMacros>
             <string>USE_HAL_DRIVER</string>

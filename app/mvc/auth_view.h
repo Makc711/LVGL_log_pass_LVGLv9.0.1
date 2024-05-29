@@ -20,8 +20,8 @@ private:
 
   void update() override;
   static void show_success_message();
-  static void show_failure_message(const int attempts);
-  static void set_profile_panel_mode(const panel_mode_t mode);
+  static void show_failure_message(int attempts);
+  static void set_profile_panel_mode(panel_mode_t mode);
 
 private:
   auth_model& f_model;
