@@ -158,10 +158,10 @@ static void flush_cb(lv_display_t* disp, const lv_area_t* area, uint8_t* px_map)
   const int32_t y2 = area->y2;
   /*Return if the area is out the screen*/
 
-  if(x2 < 0) return;
-  if(y2 < 0) return;
-  if(x1 > TFT_HOR_RES - 1) return;
-  if(y1 > TFT_VER_RES - 1) return;
+  if (x2 < 0) return;
+  if (y2 < 0) return;
+  if (x1 > TFT_HOR_RES - 1) return;
+  if (y1 > TFT_VER_RES - 1) return;
 
   /*Truncate the area to the screen*/
   const int32_t act_x1 = (x1 < 0) ? 0 : x1;
@@ -182,7 +182,6 @@ static void flush_cb(lv_display_t* disp, const lv_area_t* area, uint8_t* px_map)
   /*##-7- Start the DMA transfer using the interrupt mode #*/
   /* Configure the source, destination and buffer size DMA fields and Start DMA Stream transfer */
   /* Enable All the DMA interrupts */
-  HAL_StatusTypeDef err;
   uint32_t length = (x2_flush - x1_flush + 1);
 #if LV_COLOR_DEPTH == 24 || LV_COLOR_DEPTH == 32
   length *= 2; /* STM32 DMA uses 16-bit chunks so multiply by 2 for 32-bit color */
@@ -192,10 +191,11 @@ static void flush_cb(lv_display_t* disp, const lv_area_t* area, uint8_t* px_map)
   {
     SCB_CleanInvalidateDCache();
   }
-  err = HAL_DMA_Start_IT(&DmaHandle,
-    (uint32_t)buf_to_flush, 
-    (uint32_t)&my_fb[y_fill_act * TFT_HOR_RES + x1_flush],
-    length);
+
+  const HAL_StatusTypeDef err = HAL_DMA_Start_IT(&DmaHandle,
+                                                 (uint32_t)buf_to_flush, 
+                                                 (uint32_t)&my_fb[y_fill_act * TFT_HOR_RES + x1_flush],
+                                                 length);
   if (err != HAL_OK)
   {
     while (1) {}	/*Halt on error*/
@@ -447,7 +447,7 @@ static void DMA_TransferComplete(DMA_HandleTypeDef *han)
   else 
   {
     const uint32_t length = (x2_flush - x1_flush + 1);
-    buf_to_flush += x2_flush - x1_flush + 1;
+    buf_to_flush += length;
     /*##-7- Start the DMA transfer using the interrupt mode ####################*/
     /* Configure the source, destination and buffer size DMA fields and Start DMA Stream transfer */
     /* Enable All the DMA interrupts */

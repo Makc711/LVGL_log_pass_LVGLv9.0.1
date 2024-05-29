@@ -28,7 +28,7 @@ error_code_t;
 /**********************
  *   GLOBAL FUNCTIONS
  **********************/
-error_code_t app_main();
+error_code_t app_init();
 
 #ifdef __cplusplus
 }

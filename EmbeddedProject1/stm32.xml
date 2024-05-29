@@ -64,7 +64,7 @@
     <AllDependencies>
       <ProjectDependency>
         <RelativePath>..\.cproject</RelativePath>
-        <Timestamp>133614484979721211</Timestamp>
+        <Timestamp>133614581248655176</Timestamp>
       </ProjectDependency>
     </AllDependencies>
     <RootDirectory>
@@ -87,7 +87,13 @@
                   <Name>flash</Name>
                   <Files>
                     <VirtualFileSnapshot>
-                      <RelativePath>..\app\drivers\flash\flash_rw.c</RelativePath>
+                      <RelativePath>..\app\drivers\flash\flash_f7.cpp</RelativePath>
+                    </VirtualFileSnapshot>
+                    <VirtualFileSnapshot>
+                      <RelativePath>..\app\drivers\flash\flash_f7.h</RelativePath>
+                    </VirtualFileSnapshot>
+                    <VirtualFileSnapshot>
+                      <RelativePath>..\app\drivers\flash\flash_rw.cpp</RelativePath>
                     </VirtualFileSnapshot>
                     <VirtualFileSnapshot>
                       <RelativePath>..\app\drivers\flash\flash_rw.h</RelativePath>
@@ -109,7 +115,7 @@
                   <Name>touchpad</Name>
                   <Files>
                     <VirtualFileSnapshot>
-                      <RelativePath>..\app\drivers\touchpad\touchpad.c</RelativePath>
+                      <RelativePath>..\app\drivers\touchpad\touchpad.cpp</RelativePath>
                     </VirtualFileSnapshot>
                     <VirtualFileSnapshot>
                       <RelativePath>..\app\drivers\touchpad\touchpad.h</RelativePath>
@@ -2997,10 +3003,10 @@
               <Name>hardware</Name>
               <Files>
                 <VirtualFileSnapshot>
-                  <RelativePath>..\app\hardware\hardware.c</RelativePath>
+                  <RelativePath>..\app\hardware\led.cpp</RelativePath>
                 </VirtualFileSnapshot>
                 <VirtualFileSnapshot>
-                  <RelativePath>..\app\hardware\hardware.h</RelativePath>
+                  <RelativePath>..\app\hardware\led.h</RelativePath>
                 </VirtualFileSnapshot>
               </Files>
             </VirtualDirectorySnapshot>
@@ -3668,6 +3674,12 @@
                       <RelativePath>..\Drivers\STM32F7xx_HAL_Driver\Inc\stm32f7xx_hal_cortex.h</RelativePath>
                     </VirtualFileSnapshot>
                     <VirtualFileSnapshot>
+                      <RelativePath>..\Drivers\STM32F7xx_HAL_Driver\Inc\stm32f7xx_hal_crc.h</RelativePath>
+                    </VirtualFileSnapshot>
+                    <VirtualFileSnapshot>
+                      <RelativePath>..\Drivers\STM32F7xx_HAL_Driver\Inc\stm32f7xx_hal_crc_ex.h</RelativePath>
+                    </VirtualFileSnapshot>
+                    <VirtualFileSnapshot>
                       <RelativePath>..\Drivers\STM32F7xx_HAL_Driver\Inc\stm32f7xx_hal_def.h</RelativePath>
                     </VirtualFileSnapshot>
                     <VirtualFileSnapshot>
@@ -3744,6 +3756,9 @@
                     </VirtualFileSnapshot>
                     <VirtualFileSnapshot>
                       <RelativePath>..\Drivers\STM32F7xx_HAL_Driver\Inc\stm32f7xx_ll_cortex.h</RelativePath>
+                    </VirtualFileSnapshot>
+                    <VirtualFileSnapshot>
+                      <RelativePath>..\Drivers\STM32F7xx_HAL_Driver\Inc\stm32f7xx_ll_crc.h</RelativePath>
                     </VirtualFileSnapshot>
                     <VirtualFileSnapshot>
                       <RelativePath>..\Drivers\STM32F7xx_HAL_Driver\Inc\stm32f7xx_ll_dma.h</RelativePath>
@@ -3782,6 +3797,12 @@
                       <RelativePath>..\Drivers\STM32F7xx_HAL_Driver\Inc\stm32f7xx_hal_cortex.h</RelativePath>
                     </VirtualFileSnapshot>
                     <VirtualFileSnapshot>
+                      <RelativePath>..\Drivers\STM32F7xx_HAL_Driver\Inc\stm32f7xx_hal_crc.h</RelativePath>
+                    </VirtualFileSnapshot>
+                    <VirtualFileSnapshot>
+                      <RelativePath>..\Drivers\STM32F7xx_HAL_Driver\Inc\stm32f7xx_hal_crc_ex.h</RelativePath>
+                    </VirtualFileSnapshot>
+                    <VirtualFileSnapshot>
                       <RelativePath>..\Drivers\STM32F7xx_HAL_Driver\Inc\stm32f7xx_hal_def.h</RelativePath>
                     </VirtualFileSnapshot>
                     <VirtualFileSnapshot>
@@ -3858,6 +3879,9 @@
                     </VirtualFileSnapshot>
                     <VirtualFileSnapshot>
                       <RelativePath>..\Drivers\STM32F7xx_HAL_Driver\Inc\stm32f7xx_ll_cortex.h</RelativePath>
+                    </VirtualFileSnapshot>
+                    <VirtualFileSnapshot>
+                      <RelativePath>..\Drivers\STM32F7xx_HAL_Driver\Inc\stm32f7xx_ll_crc.h</RelativePath>
                     </VirtualFileSnapshot>
                     <VirtualFileSnapshot>
                       <RelativePath>..\Drivers\STM32F7xx_HAL_Driver\Inc\stm32f7xx_ll_dma.h</RelativePath>
@@ -3899,6 +3923,12 @@
                     </VirtualFileSnapshot>
                     <VirtualFileSnapshot>
                       <RelativePath>..\Drivers\STM32F7xx_HAL_Driver\Src\stm32f7xx_hal_cortex.c</RelativePath>
+                    </VirtualFileSnapshot>
+                    <VirtualFileSnapshot>
+                      <RelativePath>..\Drivers\STM32F7xx_HAL_Driver\Src\stm32f7xx_hal_crc.c</RelativePath>
+                    </VirtualFileSnapshot>
+                    <VirtualFileSnapshot>
+                      <RelativePath>..\Drivers\STM32F7xx_HAL_Driver\Src\stm32f7xx_hal_crc_ex.c</RelativePath>
                     </VirtualFileSnapshot>
                     <VirtualFileSnapshot>
                       <RelativePath>..\Drivers\STM32F7xx_HAL_Driver\Src\stm32f7xx_hal_dma.c</RelativePath>

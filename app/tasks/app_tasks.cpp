@@ -25,6 +25,7 @@ app_tasks::log_pass_t app_tasks::f_log_pass;
 app_tasks::mutex_t app_tasks::f_mutex_semaphore;
 #ifdef EMBEDDED
 TaskHandle_t app_tasks::f_task_mvc_handle;
+extern CRC_HandleTypeDef hcrc;
 #else
 std::condition_variable app_tasks::f_cv;
 #endif
@@ -118,11 +119,15 @@ void app_tasks::task_lvgl(void* pv_parameters)
 
 void app_tasks::task_mvc(void* pv_parameters)
 {
-  char saved_username[k_username_max_length];
-  char saved_password[k_password_max_length];
-  memory_read_log_pass(saved_username, saved_password);
+#ifdef EMBEDDED
+  const memory memory(flash_t::addr::ADDR_FLASH_SECTOR_7, hcrc);
+#else
+  const memory memory("log_pass.txt");
+#endif
+  data_t data{};
+  [[maybe_unused]] const auto result = memory.read_data(data);
 
-  auth_model model(saved_username, saved_password);
+  auth_model model(data.username, data.password);
   const auth_view view(model);
   const auth_controller controller(model);
 

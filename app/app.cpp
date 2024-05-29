@@ -20,7 +20,9 @@
 /**********************
  *  STATIC VARIABLES
  **********************/
-#ifndef EMBEDDED
+#ifdef EMBEDDED
+extern CRC_HandleTypeDef hcrc;
+#else
 lv_display_t* g_display;
 #endif
 
@@ -37,7 +39,7 @@ static error_code_t windows_input_device_init();
 /**********************
  *   GLOBAL FUNCTIONS
  **********************/
-error_code_t app_main()
+error_code_t app_init()
 {
   lv_init();
 

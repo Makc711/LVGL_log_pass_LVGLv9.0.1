@@ -1019,7 +1019,7 @@ osStatus osRecursiveMutexWait (osMutexId mutex_id, uint32_t millisec);
 */
 uint32_t osSemaphoreGetCount(osSemaphoreId semaphore_id);
 
-  unsigned portBASE_TYPE makeFreeRtosPriority(osPriority priority);
+unsigned portBASE_TYPE makeFreeRtosPriority(osPriority priority);
 
 #ifdef  __cplusplus
 }

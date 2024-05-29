@@ -1,7 +1,6 @@
 ﻿#pragma once
 
 // Include
-#include <memory>
 #include "observable.h"
 
 // Constants

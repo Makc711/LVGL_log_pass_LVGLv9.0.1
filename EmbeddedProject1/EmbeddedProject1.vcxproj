@@ -83,7 +83,9 @@
   <ImportGroup Label="ExtensionTargets">
   </ImportGroup>
   <ItemGroup>
-    <ClCompile Include="..\app\drivers\flash\flash_rw.c" />
+    <ClCompile Include="..\app\drivers\flash\flash_f7.cpp" />
+    <ClCompile Include="..\app\drivers\flash\flash_rw.cpp" />
+    <ClCompile Include="..\app\drivers\tft\tft.c" />
     <ClCompile Include="..\app\hardware\led.cpp" />
     <ClCompile Include="..\app\memory.cpp" />
     <ClCompile Include="..\app\mvc\auth_controller.cpp" />
@@ -94,7 +96,7 @@
     <ClCompile Include="..\app\app.cpp" />
     <ClCompile Include="ExtraMemories.c" />
     <ClInclude Include="..\app\app.h" />
-    <ClCompile Include="..\app\drivers\tft\tft.c" />
+    <ClInclude Include="..\app\drivers\flash\flash_f7.h" />
     <ClInclude Include="..\app\drivers\flash\flash_rw.h" />
     <ClInclude Include="..\app\drivers\tft\tft.h" />
     <ClCompile Include="..\app\drivers\touchpad\touchpad.cpp" />
@@ -1012,5 +1014,10 @@
     <ClInclude Include="..\app\mvc\auth_view.h" />
     <ClCompile Include="..\Src\main.cpp" />
     <ClCompile Include="..\Src\stm32f7xx_it.cpp" />
+    <ClInclude Include="..\Drivers\STM32F7xx_HAL_Driver\Inc\stm32f7xx_hal_crc.h" />
+    <ClInclude Include="..\Drivers\STM32F7xx_HAL_Driver\Inc\stm32f7xx_hal_crc_ex.h" />
+    <ClInclude Include="..\Drivers\STM32F7xx_HAL_Driver\Inc\stm32f7xx_ll_crc.h" />
+    <ClCompile Include="..\Drivers\STM32F7xx_HAL_Driver\Src\stm32f7xx_hal_crc.c" />
+    <ClCompile Include="..\Drivers\STM32F7xx_HAL_Driver\Src\stm32f7xx_hal_crc_ex.c" />
   </ItemGroup>
 </Project>
