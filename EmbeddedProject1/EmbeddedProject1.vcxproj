@@ -84,6 +84,7 @@
   </ImportGroup>
   <ItemGroup>
     <ClCompile Include="..\app\drivers\flash\flash_rw.c" />
+    <ClCompile Include="..\app\hardware\led.cpp" />
     <ClCompile Include="..\app\memory.cpp" />
     <ClCompile Include="..\app\mvc\auth_controller.cpp" />
     <ClCompile Include="..\app\mvc\auth_model.cpp" />
@@ -96,7 +97,7 @@
     <ClCompile Include="..\app\drivers\tft\tft.c" />
     <ClInclude Include="..\app\drivers\flash\flash_rw.h" />
     <ClInclude Include="..\app\drivers\tft\tft.h" />
-    <ClCompile Include="..\app\drivers\touchpad\touchpad.c" />
+    <ClCompile Include="..\app\drivers\touchpad\touchpad.cpp" />
     <ClInclude Include="..\app\drivers\touchpad\touchpad.h" />
     <ClCompile Include="..\app\gui\gui_app.cpp" />
     <ClInclude Include="..\app\gui\gui_app.h" />
@@ -676,6 +677,7 @@
     <ClCompile Include="..\app\gui\lvgl\src\widgets\win\lv_win.c" />
     <ClInclude Include="..\app\gui\lvgl\src\widgets\win\lv_win.h" />
     <ClCompile Include="..\app\tasks\app_tasks.cpp" />
+    <ClInclude Include="..\app\hardware\led.h" />
     <ClInclude Include="..\app\memory.h" />
     <ClInclude Include="..\app\mvc\observable.h" />
     <ClInclude Include="..\app\mvc\observer.h" />

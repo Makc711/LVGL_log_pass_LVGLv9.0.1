@@ -1165,6 +1165,9 @@
     <Filter Include="Header files\app\drivers\flash">
       <UniqueIdentifier>{11335a34-f53b-4c70-b98d-62846a3887f7}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Source files\app\hardware">
+      <UniqueIdentifier>{2bf6d3c9-da60-4ca3-be8a-8ed3d7dd2c05}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="..\Startup\startup_stm32f746nghx.S">
@@ -1182,9 +1185,6 @@
     <ClInclude Include="..\app\drivers\tft\tft.h">
       <Filter>Source files\app\drivers\tft</Filter>
     </ClInclude>
-    <ClCompile Include="..\app\drivers\touchpad\touchpad.c">
-      <Filter>Source files\app\drivers\touchpad</Filter>
-    </ClCompile>
     <ClInclude Include="..\app\drivers\touchpad\touchpad.h">
       <Filter>Source files\app\drivers\touchpad</Filter>
     </ClInclude>
@@ -3930,6 +3930,12 @@
     <ClCompile Include="..\Src\stm32f7xx_it.cpp">
       <Filter>Source files\Src</Filter>
     </ClCompile>
+    <ClCompile Include="..\app\hardware\led.cpp">
+      <Filter>Source files\app\hardware</Filter>
+    </ClCompile>
+    <ClCompile Include="..\app\drivers\touchpad\touchpad.cpp">
+      <Filter>Source files\app\drivers\touchpad</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <LinkerScript Include="STM32F746NG_flash.lds" />
@@ -3952,6 +3958,9 @@
     </ClInclude>
     <ClInclude Include="..\app\mvc\observer.h">
       <Filter>Source files\app\mvc</Filter>
+    </ClInclude>
+    <ClInclude Include="..\app\hardware\led.h">
+      <Filter>Source files\app\hardware</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

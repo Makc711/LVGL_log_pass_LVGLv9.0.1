@@ -79,7 +79,7 @@ static error_code_t display_init()
 static error_code_t input_device_init()
 {
 #ifdef EMBEDDED
-  touchpad_init();
+  touchpad::init();
 #else
   if (const error_code_t res = windows_input_device_init();
     res != error_code_t::OK)

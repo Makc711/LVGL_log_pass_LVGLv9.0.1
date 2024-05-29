@@ -5,9 +5,6 @@
   ******************************************************************************
   */
 
-/*********************
- *      INCLUDES
- *********************/
 #include "app_tasks.h"
 #include "gui/lvgl/lvgl.h"
 #include "gui/gui_app.h"
@@ -34,14 +31,12 @@ std::condition_variable app_tasks::f_cv;
 
 void app_tasks::init()
 {
-  if (static bool is_initialized = false; 
-      !is_initialized)
+  for(static bool is_initialized = false; !is_initialized; is_initialized = true)
   {
 #ifdef EMBEDDED
     f_mutex_semaphore = xSemaphoreCreateMutex();
 #endif
     create_tasks();
-    is_initialized = true;
   }
 }
 

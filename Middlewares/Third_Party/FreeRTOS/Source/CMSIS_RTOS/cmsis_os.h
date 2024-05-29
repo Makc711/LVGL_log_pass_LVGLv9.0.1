@@ -26,7 +26,7 @@
  *  
  *----------------------------------------------------------------------------
  *
- * Portions Copyright � 2016 STMicroelectronics International N.V. All rights reserved.
+ * Portions Copyright © 2016 STMicroelectronics International N.V. All rights reserved.
  * Portions Copyright (c) 2013 ARM LIMITED
  * All rights reserved.
  * Redistribution and use in source and binary forms, with or without
@@ -1019,7 +1019,7 @@ osStatus osRecursiveMutexWait (osMutexId mutex_id, uint32_t millisec);
 */
 uint32_t osSemaphoreGetCount(osSemaphoreId semaphore_id);
 
-unsigned portBASE_TYPE makeFreeRtosPriority (osPriority priority);
+  unsigned portBASE_TYPE makeFreeRtosPriority(osPriority priority);
 
 #ifdef  __cplusplus
 }
