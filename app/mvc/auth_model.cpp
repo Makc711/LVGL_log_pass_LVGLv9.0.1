@@ -1,8 +1,13 @@
-// Include
+/**
+  ******************************************************************************
+  * @file           : auth_model.cpp
+  * @author         : Rusanov M.N.
+  ******************************************************************************
+  */
+
 #include "auth_model.h"
 #include <cstring>
 
-// Class auth_model
 auth_model::auth_model(const char* username, const char* password)
   : f_username(username)
   , f_password(password)

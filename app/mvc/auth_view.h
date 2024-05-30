@@ -1,14 +1,26 @@
-﻿#pragma once
+﻿/**
+  ******************************************************************************
+  * @file           : auth_view.h
+  * @author         : Rusanov M.N.
+  * @version        : V2.0.0
+  * @date           : 30-May-2024
+  * @brief          : Header for auth_view.cpp file.
+  *                   This file contains functions for working with MVC model
+  *                   (View)
+  *
+  ******************************************************************************
+  */
 
-// Include
+#pragma once
+
 #include "observer.h"
 #include "auth_model.h"
+#include "gui/gui_app.h"
 
-// Class auth_view
 class auth_view final : public observer
 {
 public:
-  explicit auth_view(auth_model& model);
+  static void init(auth_model& model);
 
 private:
   enum class panel_mode_t
@@ -18,11 +30,13 @@ private:
     FAILURE
   };
 
+  explicit auth_view(auth_model& model);
   void update() override;
-  static void show_success_message();
-  static void show_failure_message(int attempts);
-  static void set_profile_panel_mode(panel_mode_t mode);
+  void show_success_message() const;
+  void show_failure_message(int attempts) const;
+  void set_profile_panel_mode(panel_mode_t mode) const;
 
 private:
   auth_model& f_model;
+  gui_app& f_gui_app;
 };

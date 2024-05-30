@@ -1,10 +1,21 @@
+/**
+  ******************************************************************************
+  * @file           : observable.h
+  * @author         : Rusanov M.N.
+  * @version        : V1.0.0
+  * @date           : 30-May-2024
+  * @brief          : Header for observable.cpp file.
+  *                   This is the base class that manages the list of observers
+  *                   and provides the ability to notify them of updates.
+  *
+  ******************************************************************************
+  */
+
 #pragma once
 
-// Include
 #include <vector>
 #include "observer.h"
 
-// Class observable
 class observable
 {
 public:

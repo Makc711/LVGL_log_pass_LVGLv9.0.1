@@ -7,7 +7,6 @@
 
 #include "app_tasks.h"
 #include "gui/lvgl/lvgl.h"
-#include "gui/gui_app.h"
 #include "memory.h"
 #include "auth_model.h"
 #include "auth_view.h"
@@ -106,8 +105,6 @@ void app_tasks::sleep_os(const uint32_t time_ms)
 
 void app_tasks::task_lvgl(void* pv_parameters)
 {
-  gui_create();
-
   for (;;)
   {
     mutex_lvgl_lock();
@@ -128,7 +125,7 @@ void app_tasks::task_mvc(void* pv_parameters)
   [[maybe_unused]] const auto result = memory.read_data(data);
 
   auth_model model(data.username, data.password);
-  const auth_view view(model);
+  auth_view::init(model);
   const auth_controller controller(model);
 
   for (;;)

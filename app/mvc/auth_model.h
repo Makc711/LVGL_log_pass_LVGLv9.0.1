@@ -1,12 +1,22 @@
-﻿#pragma once
+﻿/**
+  ******************************************************************************
+  * @file           : auth_model.h
+  * @author         : Rusanov M.N.
+  * @version        : V1.0.0
+  * @date           : 30-May-2024
+  * @brief          : Header for auth_model.cpp file.
+  *                   This file contains functions for working with MVC model
+  *                   (Model)
+  *
+  ******************************************************************************
+  */
 
-// Include
+#pragma once
+
 #include "observable.h"
 
-// Constants
 constexpr auto k_attempts = 3;
 
-// Class auth_model
 class auth_model final : public observable
 {
 public:

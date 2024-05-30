@@ -1,6 +1,6 @@
 /*
 Compile-time string manipulation library for modern C++
-version 1.0.2
+version 1.0.3
 https://github.com/snw1/static-string-cpp
 Added functionality by Maxim Rusanov <maxim.rusanof@gmail.com>
 Added:
@@ -12,6 +12,7 @@ Added:
     STOSW()
     to_c_string()
     c_str()
+    max()
 
 Licensed under the MIT License <http://opensource.org/licenses/MIT>.
 SPDX-License-Identifier: MIT
@@ -52,8 +53,8 @@ namespace snw1 {
 #define UTOSW(x) uint_to_static_string<(x), wchar_t>()
 #define SSTOI(x) static_string_to_int((x))  // c_string or static_string to int
 #define SSTOU(x) static_string_to_uint((x)) // c_string or static_string to uint
-#define STOSS(x) string_to_static_string<char, c_strlen((x)) + 1>((x)) // c_string "str" or constexpr const char* to static_string
-#define STOSW(x) string_to_static_string<wchar_t, c_strlen((x)) + 1>((x)) // c_string "str" or constexpr const char* to static_string
+#define STOSS(x) string_to_static_string<char, snw1::c_strlen((x)) + 1>((x)) // c_string "str" or constexpr const char* to static_string
+#define STOSW(x) string_to_static_string<wchar_t, snw1::c_strlen((x)) + 1>((x)) // c_string "str" or constexpr const char* to static_string
 
 template<typename Char, size_t Size>
 struct basic_static_string;
@@ -612,6 +613,27 @@ constexpr size_t c_strlen(const Char* str) {
         ++length;
     }
     return length;
+}
+
+template <typename T, T... Args>
+struct max_helper;
+
+template <typename T, T A>
+struct max_helper<T, A> {
+  static constexpr T value = A;
+};
+
+template <typename T, T A, T... Rest>
+struct max_helper<T, A, Rest...> {
+  static constexpr T temp_max = max_helper<T, Rest...>::value;
+  static constexpr T value = (A > temp_max) ? A : temp_max;
+};
+
+template <auto... Args>
+constexpr auto max()
+{
+  using common_type = std::common_type_t<decltype(Args)...>;
+  return max_helper<common_type, Args...>::value;
 }
 
 } // namespace snw1

@@ -1,7 +1,12 @@
-// Include
+/**
+  ******************************************************************************
+  * @file           : observable.cpp
+  * @author         : Rusanov M.N.
+  ******************************************************************************
+  */
+
 #include "observable.h"
 
-// Class observable
 void observable::add_observer(observer* observer)
 {
   f_observers.push_back(observer);

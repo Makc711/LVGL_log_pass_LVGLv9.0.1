@@ -1,7 +1,12 @@
-// Include
+/**
+  ******************************************************************************
+  * @file           : auth_controller.cpp
+  * @author         : Rusanov M.N.
+  ******************************************************************************
+  */
+
 #include "auth_controller.h"
 
-// Class auth_controller
 auth_controller::auth_controller(auth_model& model)
   : f_model(model) {}
 

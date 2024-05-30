@@ -1,9 +1,20 @@
-﻿#pragma once
+﻿/**
+  ******************************************************************************
+  * @file           : auth_controller.h
+  * @author         : Rusanov M.N.
+  * @version        : V1.0.0
+  * @date           : 30-May-2024
+  * @brief          : Header for auth_controller.cpp file.
+  *                   This file contains functions for working with MVC model
+  *                   (Controller)
+  *
+  ******************************************************************************
+  */
 
-// Include
+#pragma once
+
 #include "auth_model.h"
 
-// Class auth_controller
 class auth_controller
 {
 public:
